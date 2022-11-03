@@ -1,4 +1,4 @@
-The following users have been identified as potential users for the *CLinical Sensor Scoring* tool. The user stories, use cases and component design for each of these users are also described in the text below. 
+The following users have been identified as potential users for the **Clinical Sensor Scoring** tool. The user stories, use cases and component design for each of these users are also described in the text below. 
 
 ## User 1: Clinician
 ### User story

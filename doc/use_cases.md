@@ -17,3 +17,9 @@
 * User can choose to run a test to check format and components of .csv file
 * [if no error] Interface notifies user and confirms that the .csv file is properly formatted
 * [if error] Interface outputs error message and notifies user that .csv file needs to be formatted
+
+## Database Management Systems(DBMS)
+* A database access language is required for interacting with a database from creating database to simply inserting data.
+* A proper DBMS must support several query languages, which are Structured query language (SQL) and MOngoDB Query Language (MQL), to interact with the database.
+* [if no error] DBMS can monitor the performance of databases using integrated tools and enable users to tune databases by creating optimized indexes.
+* [if error] DBMS provides a recovery platform with the necessary tools to fully or partially restore databases to their previous state.

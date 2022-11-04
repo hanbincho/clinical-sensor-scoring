@@ -10,6 +10,9 @@ A user of this tool would be a clinican. They would be able to obtain clinically
 * User selects model(s) of choice
 * [if no error] Interface outputs score(s) for loaded data
 * [if error encountered] Interface outputs error message
+#### Experience survey
+* User can leave feedback about the performance of model(s) or interface
+* Feedback can be stored and reviewed to guide future updates
 ### Component design
 
 ## User 2: Database administrator

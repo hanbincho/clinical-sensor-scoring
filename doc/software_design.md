@@ -14,7 +14,12 @@ A user of this tool would be a clinican. They would be able to obtain clinically
 * User can leave feedback about the performance of model(s) or interface
 * Feedback can be stored and reviewed to guide future updates
 ### Component design
-
+#### Obtain score
+* Load in .csv file with data of interest
+* Perform signal processing to obtain characteristics of data
+* Interface provides available models for selection
+* Interface loads model of choice
+* Interface inputs processed characteristics through model to provide a score
 ## User 2: Database administrator
 ### User story
 Another user would be a database administrator. They would want to format the data and make sure it has all the necessary components for future training or evaluation. They would want to be able to run tests on the data to make sure that it is in the proper format for interpretation. They would be familiar with what the data means and what types of data should be used with this tool.

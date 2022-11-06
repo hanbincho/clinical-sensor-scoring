@@ -19,6 +19,7 @@ A user of this tool would be a clinican. They would be able to obtain clinically
 * Signal processing functionality of loaded data
 * Database with machine learning model(s)
 * Interface that takes processed data and uses model of choice to output score
+
 ## User 2: Database administrator
 ### User story
 Another user would be a database administrator. They would want to format the data and make sure it has all the necessary components for future training or evaluation. They would want to be able to run tests on the data to make sure that it is in the proper format for interpretation. They would be familiar with what the data means and what types of data should be used with this tool.
@@ -35,6 +36,9 @@ Another user would be a database administrator. They would want to format the da
 * [if no error] DBMS can monitor the performance of databases using integrated tools and enable users to tune databases by creating optimized indexes.
 * [if error] DBMS provides a recovery platform with the necessary tools to fully or partially restore databases to their previous state.
 ### Component design
+* Monitoring cloud storage and database security issues
+* backup the storage if there is any issues or errors
+* conversant with SQL and relevant database technologies
 
 ## User 3: UX Designer
 ### User story

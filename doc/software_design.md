@@ -23,11 +23,12 @@ A user of this tool would be a clinican. They would be able to obtain clinically
 ### User story
 Another user would be a database administrator. They would want to format the data and make sure it has all the necessary components for future training or evaluation. They would want to be able to run tests on the data to make sure that it is in the proper format for interpretation. They would be familiar with what the data means and what types of data should be used with this tool.
 ### Use case(s)
-#### Data quality check
-* User: Uploads a `.csv`, `.txt`, `.dat` or `.xlsx` file containing data from sensors.
-* Algorithm: Checks if the data in uploaded file is compatible for use with the CLinical Scoring Software. 
-* Interface: > * [if file is well formatted] Notifies user and confirms that the uploaded file is properly formatted for use with software. \n
-		* [otherwise] Outputs error message and notifies user that .csv file needs to be formatted.
+#### Verify data format
+* **User**: Uploads a `.csv`, `.txt`, `.dat` or `.xlsx` file containing recorded data from sensors.
+* **Algorithm**: Checks if the data in uploaded file is compatible for use with the Clinical Scoring Software. 
+* **Interface**:
+	* _If file is well formatted_: Notifies user and confirms that the uploaded file is properly formatted for use with software.
+	* _Otherwise_: Outputs error message and notifies user that uploaded file needs to be formatted.
 #### Database Management Systems(DBMS)
 * A database access language is required for interacting with a database from creating database to simply inserting data.
 * A proper DBMS must support several query languages, which are Structured query language (SQL) and MOngoDB Query Language (MQL), to interact with the database.
@@ -45,6 +46,8 @@ Another user would be a UX designer. They would be able to provide updates to th
 ### User story
 Another user would be a researcher. They would be able to obtain clinically relevant scores for assessing patient motor behaviors, but with some more customization by selecting their machine learning model(s) of choice. They would use this tool to assess patient's motor symptoms, but also build on current models by performing additional training with model(s) of interest. They would be able familiar with the context of the data, understand if a score is reflective of the patient's motor behavior, and have a broad understanding of machine learning and neural networks.
 ### Use case(s)
+### Verify data format
+Simialar to the `Verify data format` use case described for the `Database administrator` above.
 #### Import/export machine learning model
 * User can choose to open a file explorer to load in a file with a custom machine learning model'sparameters
 * Interface now provides this newly imported model prior to scoring

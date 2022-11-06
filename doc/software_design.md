@@ -3,7 +3,7 @@ The following users have been identified as potential users for the **Clinical S
 > ## User 1: Clinician
 >> ### User story
 >> A user of this tool would be a clinican. They would be able to obtain clinically relevant scores to assess patient motor behaviors. They would use this tool as a more consistent and efficient means to assess motor behavior symptoms. They are familiar with context behind score values and can confirm whether or not it aligns with what they would have expected
-
+>>
 >> ### Use case(s)
 >> #### Obtain score
 >> * User can open a file explorer interface to navigate to and select a .csv file of choice
@@ -15,29 +15,33 @@ The following users have been identified as potential users for the **Clinical S
 >> #### Experience survey
 >> * User can leave feedback about the performance of model(s) or interface
 >> * Feedback can be stored and reviewed to guide future updates
-
+>>
 >> ### Component design
 >> #### Obtain score
 >> * Loading functionality for raw data
 >> * Signal processing functionality of loaded data
 >> * Database with machine learning model(s)
 >> * Interface that takes processed data and uses model of choice to output score
-## User 2: Database administrator
-### User story
-Another user would be a database administrator. They would want to format the data and make sure it has all the necessary components for future training or evaluation. They would want to be able to run tests on the data to make sure that it is in the proper format for interpretation. They would be familiar with what the data means and what types of data should be used with this tool.
-### Use case(s)
-#### Verify data format
-* **User**: Uploads a `.csv`, `.txt`, `.dat` or `.xlsx` file containing recorded data from sensors.
-* **Algorithm**: Checks if the data in uploaded file is compatible for use with the Clinical Scoring Software. 
-* **Interface**:
-	* _If file is well formatted_: Notifies user and confirms that the uploaded file is properly formatted for use with software.
-	* _Otherwise_: Outputs error message and notifies user that uploaded file needs to be formatted.
-#### Database Management Systems(DBMS)
-* A database access language is required for interacting with a database from creating database to simply inserting data.
-* A proper DBMS must support several query languages, which are Structured query language (SQL) and MOngoDB Query Language (MQL), to interact with the database.
-* [if no error] DBMS can monitor the performance of databases using integrated tools and enable users to tune databases by creating optimized indexes.
-* [if error] DBMS provides a recovery platform with the necessary tools to fully or partially restore databases to their previous state.
-### Component design
+
+> ## User 2: Database administrator
+>> ### User story
+>> Another user would be a database administrator. They would want to format the data and make sure it has all the necessary components for future training or evaluation. They would want to be able to run tests on the data to make sure that it is in the proper format for interpretation. They would be familiar with what the data means and what types of data should be used with this tool.
+>>
+>> ### Use case(s)
+>> #### Verify data format
+>> * **User**: Uploads a `.csv`, `.txt`, `.dat` or `.xlsx` file containing recorded data from sensors.
+>> * **Algorithm**: Checks if the data in uploaded file is compatible for use with the Clinical Scoring Software. 
+>> * **Interface**:
+>>	* _If file is well formatted_: Notifies user and confirms that the uploaded file is properly formatted for use with software.
+>>	* _Otherwise_: Outputs error message and notifies user that uploaded file needs to be formatted.
+>>
+>> #### Database Management Systems(DBMS)
+>>* A database access language is required for interacting with a database from creating database to simply inserting data.
+>>* A proper DBMS must support several query languages, which are Structured query language (SQL) and MOngoDB Query Language (MQL), to interact with the database.
+>>* [if no error] DBMS can monitor the performance of databases using integrated tools and enable users to tune databases by creating optimized indexes.
+>>* [if error] DBMS provides a recovery platform with the necessary tools to fully or partially restore databases to their previous state.
+>>
+>> ### Component design
 
 ## User 3: UX Designer
 ### User story

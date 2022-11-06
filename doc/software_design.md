@@ -24,10 +24,10 @@ A user of this tool would be a clinican. They would be able to obtain clinically
 Another user would be a database administrator. They would want to format the data and make sure it has all the necessary components for future training or evaluation. They would want to be able to run tests on the data to make sure that it is in the proper format for interpretation. They would be familiar with what the data means and what types of data should be used with this tool.
 ### Use case(s)
 #### Data quality check
-* User can select a .csv file to load 
-* User can choose to run a test to check format and components of .csv file
-* [if no error] Interface notifies user and confirms that the .csv file is properly formatted
-* [if error] Interface outputs error message and notifies user that .csv file needs to be formatted.
+* User: Uploads a `.csv`, `.txt`, `.dat` or `.xlsx` file containing data from sensors.
+* Algorithm: Checks if the data in uploaded file is compatible for use with the CLinical Scoring Software. 
+* Interface: > * [if file is well formatted] Notifies user and confirms that the uploaded file is properly formatted for use with software. \n
+		* [otherwise] Outputs error message and notifies user that .csv file needs to be formatted.
 #### Database Management Systems(DBMS)
 * A database access language is required for interacting with a database from creating database to simply inserting data.
 * A proper DBMS must support several query languages, which are Structured query language (SQL) and MOngoDB Query Language (MQL), to interact with the database.

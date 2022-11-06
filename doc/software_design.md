@@ -3,24 +3,24 @@ The following users have been identified as potential users for the **Clinical S
 > ## User 1: Clinician
 >> ### User story
 >> A user of this tool would be a clinican. They would be able to obtain clinically relevant scores to assess patient motor behaviors. They would use this tool as a more consistent and efficient means to assess motor behavior symptoms. They are familiar with context behind score values and can confirm whether or not it aligns with what they would have expected
->> ### Use case(s)
->> #### Obtain score
->> * User can open a file explorer interface to navigate to and select a .csv file of choice
->> * Interface provides list of possible machine learning models to provide score
->> * User selects model(s) of choice
->> * [if no error] Interface outputs score(s) for loaded data
->> * [if error encountered] Interface outputs error message
-
->> #### Experience survey
->> * User can leave feedback about the performance of model(s) or interface
->> * Feedback can be stored and reviewed to guide future updates
-
+>>> ### Use case(s)
+>>> #### Obtain score
+>>> * User can open a file explorer interface to navigate to and select a .csv file of choice
+>>> * Interface provides list of possible machine learning models to provide score
+>>> * User selects model(s) of choice
+>>> * [if no error] Interface outputs score(s) for loaded data
+>>> * [if error encountered] Interface outputs error message
+>>>
+>>> #### Experience survey
+>>> * User can leave feedback about the performance of model(s) or interface
+>>> * Feedback can be stored and reviewed to guide future updates
+>
 >> ### Component design
-#### Obtain score
-* Loading functionality for raw data
-* Signal processing functionality of loaded data
-* Database with machine learning model(s)
-* Interface that takes processed data and uses model of choice to output score
+>> #### Obtain score
+>> * Loading functionality for raw data
+>> * Signal processing functionality of loaded data
+>> * Database with machine learning model(s)
+>> * Interface that takes processed data and uses model of choice to output score
 ## User 2: Database administrator
 ### User story
 Another user would be a database administrator. They would want to format the data and make sure it has all the necessary components for future training or evaluation. They would want to be able to run tests on the data to make sure that it is in the proper format for interpretation. They would be familiar with what the data means and what types of data should be used with this tool.

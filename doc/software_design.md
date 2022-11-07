@@ -138,8 +138,8 @@ The following user groups have been identified as potential users for the `**Cli
 
 | Scenario                      | Expected Output                          |
 |-------------------------------|------------------------------------------|
-| Csv file has stroke values    | Relevant score related to stroke values. |
-| Csv file has no stroke values | Score not related to it                  |
-| Csv file has healthy values   | Score associated with healthy values     |
+| File has stroke values        | Relevant score related to stroke values  |
+| File has no stroke values     | Score outside the stroke threshold       |
+| File has healthy values       | Score associated with healthy values     |
 
 

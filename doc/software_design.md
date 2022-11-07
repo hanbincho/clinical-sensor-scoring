@@ -133,13 +133,13 @@ The following user groups have been identified as potential users for the `**Cli
  >> * Capture the evaluation metrics in the newer models. Tweak model hyper parameters and make it a robust model.
  >> * Potentially identity the top performing model from the exploratory study
 >> * Integrate with the webpage deploying the  ML model for clinical sensor scoring. This would be an interactive webpage/html page where a user can upload a csv file and the page will show the clinical sensor score from the model. 
->> * Potential results produced by the model:
-| Scenario                      | Expected Output                          |   |   |   |
-|-------------------------------|------------------------------------------|---|---|---|
-| Csv file has stroke values    | Relevant score related to stroke values. |   |   |   |
-| Csv file has no stroke values | Score not related to it                  |   |   |   |
-| Csv file has healthy values   | Score associated with healthy values     |   |   |   |
+>> * Potential results produced by the model
 
- 
+
+| Scenario                      | Expected Output                          |
+|-------------------------------|------------------------------------------|
+| Csv file has stroke values    | Relevant score related to stroke values. |
+| Csv file has no stroke values | Score not related to it                  |
+| Csv file has healthy values   | Score associated with healthy values     |
 
 

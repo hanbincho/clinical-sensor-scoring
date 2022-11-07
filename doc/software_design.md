@@ -64,12 +64,13 @@ The following users have been identified as potential users for the **Clinical S
 >> Another user would be a researcher. They would be able to obtain clinically relevant scores for assessing patient motor behaviors, but with some more customization by selecting their machine learning model(s) of choice. They would use this tool to assess patient's motor symptoms, but also build on current models by performing additional training with model(s) of interest. They would be able familiar with the context of the data, understand if a score is reflective of the patient's motor behavior, and have a broad understanding of machine learning and neural networks.
 > 
 >> ### Use case(s)
->> ### Verify data format
->> Simialar to the `Verify data format` use case described for the `Database administrator` above.
+>> #### Verify data format
+>> Similar to the `Verify data format` use case described for the `Database administrator` above.
+>
 >> #### Import/export machine learning model
->> * User can choose to open a file explorer to load in a file with a custom machine learning model'sparameters
->> * Interface now provides this newly imported model prior to scoring
->> * After training a model, users can export the current model for future use
+>> * **User**: Uploads custom machine learning model's parameters
+>> * **Interface**: Uses user-provided model to train data and provide scoring. Also saves model and results.
+>> * **User**: Exports the completed trained model for future use.
 >
 >> ### Component design
 

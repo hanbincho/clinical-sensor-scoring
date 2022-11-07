@@ -92,7 +92,7 @@ The following user groups have been identified as potential users for the `**Cli
 >>
 >> #### Serve trained models
 >> * **Interface**: Shows model performance of pre-loaded ML algorithms in comparison to the user-defined algorithm.
->> * **User**: If performance of user-defined algorithm is better, user exports model and serves to `ML scientist` for review and possible deployment in the main software fto enable access by other users.
+>> * **User**: If performance of user-defined algorithm is better, user exports model and serves to `ML scientist` for review and possible deployment in the main software to facilitate access by other users.
 >
 >> ### Component design
 >> #### Components for `Import/export machine learning model` use case
@@ -105,6 +105,8 @@ The following user groups have been identified as potential users for the `**Cli
 >> * User interface to describe model performance using each hyperparameter.
 >>
 >> #### Components for `Serve trained models` use case.
+>> * Pipeline for transmiting model results to `ML Scientist`.
+
 
 > ## User 5: ML Scientist
 >> ### User story

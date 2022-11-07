@@ -1,5 +1,5 @@
 
-The following users have been identified as potential users for the **Clinical Sensor Scoring** tool. The user stories, use cases and component design for each of these users are also described in the text below. 
+The following user groups have been identified as potential users for the `**Clinical Sensor Scoring**` tool. The user stories, use cases and component design for each of these users are also described in the text below. 
 
 > ## User 1: Clinician
 >> ### User story
@@ -84,14 +84,27 @@ The following users have been identified as potential users for the **Clinical S
 >> * **Interface**: Uses user-provided model to train data and provide scoring. Also saves model and results.
 >> * **User**: Exports the completed trained model for future use.
 >>
->> #### Sensitivity analysis
+>> #### Hyperparameter tuning
 >> * **User**: Provides an array of hyperparameters for tuning the ML algorithm.
 >> * **Algorithm**: Trains data using each value of hyperparamter in the supplied array and records performance.
 >> * **Interface**: Shows user a summary of obtained results using each parameter.
 >> * **User**: Based on results shown, user can infer the best performing hyperparameters for future training.
+>>
+>> #### Serve trained models
+>> * **Interface**: Shows model performance of pre-loaded ML algorithms in comparison to the user-defined algorithm.
+>> * **User**: If performance of user-defined algorithm is better, user exports model and serves to `ML scientist` for review and possible deployment in the main software fto enable access by other users.
 >
 >> ### Component design
-
+>> #### Components for `Import/export machine learning model` use case
+>> * Storage for imported machine learnong models and their outputs.
+>> * User interface to present summary data of the performance of user-defined models. 
+>>
+>> #### Components for `Hypaparemeter tuning` use case
+>> * Database with values of hyperparameters
+>> * Storage for model performance during hyperparameter tuning.
+>> * User interface to describe model performance using each hyperparameter.
+>>
+>> #### Components for `Serve trained models` use case.
 
 > ## User 5: ML Scientist
 >> ### User story

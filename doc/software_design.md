@@ -56,12 +56,12 @@ The following users have been identified as potential users for the **Clinical S
 >
 >> ### Use case(s)
 > #### Configure UI Framework
->> **User**: Modifies and edits the user interface based on feedback with toolkits (wxPyhton, Ttinker, PyQT).
->> **Interface: Updates interface elements including input control and navigation components.
->> [if no error] Interface prompts a message informing UI that has been updated and stores changes in changelog.
+>> * **User**: Modifies and edits the user interface based on feedback with toolkits (wxPyhton, Ttinker, PyQT)
+>> * **Interface**: Updates interface elements including input control and navigation components
+>> * [if no error] Interface prompts a message informing UI that has been updated and stores changes in changelog
 >> ### Component design
->> Toolkit that manages and edits UI directly
->> Changelog that saves any modifications
+>> * Toolkit that manages and edits UI directly
+>> * Changelog that saves any modifications
 
 > ## User 4: Researchers
 >> ### User story

@@ -113,5 +113,33 @@ The following user groups have been identified as potential users for the `**Cli
 >> Another user would be a machine learning scientist. They would want to be able to choose or import machine learning model of choice. Be able to incorporate feedback to retrain the model based off of clinican input. They would also want to be able to export the model for future use. They would also want to have access to performance metrics of the models that have been trained to decide on which model to move forward with. Data analysts would be very familiar with Python machine learning packages and neural networks, understanding of the dataset, and good software design practices.
 >
 >> ### Use case(s)
+>>
+
+
+
+
+
 >
 >> ### Component design
+ >> * Investigate existing solutions for the Fine-grain Image classification problem.
+ >> *  Try out existing solutions (POCs) by running open-source codebases, if any.
+ >> * Evaluate existing solutions on open-source datasets.
+ >> * Define train test datsets and clinical scores - essential 
+ >> * Train and evaluate a model that can predict a clinical score. 
+ >> * Incorporate a feedback loop to capture any discrepencies in the predicted score. 
+ >> * Investigation/ Insights summary on why the model is (not) working well or how it can be improved.
+ >> * Summary of model results – what kind of false positives/negatives does it have? In which cases it fails?
+ >> * Retrain the model for robust results. 
+ >> * Capture the evaluation metrics in the newer models. Tweak model hyper parameters and make it a robust model.
+ >> * Potentially identity the top performing model from the exploratory study
+>> * Integrate with the webpage deploying the  ML model for clinical sensor scoring. This would be an interactive webpage/html page where a user can upload a csv file and the page will show the clinical sensor score from the model. 
+>> * Potential results produced by the model:
+| Scenario                      | Expected Output                          |   |   |   |
+|-------------------------------|------------------------------------------|---|---|---|
+| Csv file has stroke values    | Relevant score related to stroke values. |   |   |   |
+| Csv file has no stroke values | Score not related to it                  |   |   |   |
+| Csv file has healthy values   | Score associated with healthy values     |   |   |   |
+
+ 
+
+

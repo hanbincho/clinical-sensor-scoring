@@ -34,8 +34,8 @@ The following users have been identified as potential users for the **Clinical S
 >> * **User**: Uploads a `.csv`, `.txt`, `.dat` or `.xlsx` file containing recorded data from sensors.
 >> * **Algorithm**: Checks if the data in uploaded file is compatible for use with the Clinical Scoring Software. 
 >> * **Interface**:
->>	* _If file is well formatted_: Notifies user and confirms that the uploaded file is properly formatted for use with software.
->>	* _Otherwise_: Outputs error message and notifies user that uploaded file needs to be formatted.
+>>    - _If file is well formatted_: Notifies user and confirms that the uploaded file is properly formatted for use with software.
+>>    - _Otherwise_: Outputs error message and notifies user that uploaded file needs to be formatted.
 >
 >> #### Database Management Systems(DBMS)
 >>* A database access language is required for interacting with a database from creating database to simply inserting data.

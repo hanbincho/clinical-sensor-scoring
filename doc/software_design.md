@@ -23,6 +23,10 @@ The following users have been identified as potential users for the **Clinical S
 >> * Signal processing functionality of loaded data
 >> * Database with machine learning model(s)
 >> * Interface that takes processed data and uses model of choice to output score
+>> #### Experience survey
+>> * Interface that allows user to enter feedback
+>> * Database with received feedback
+>> * Interface that allows select users to access feedback
 
 
 > ## User 2: Database administrator

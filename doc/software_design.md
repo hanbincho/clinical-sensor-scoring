@@ -1,3 +1,4 @@
+
 The following users have been identified as potential users for the **Clinical Sensor Scoring** tool. The user stories, use cases and component design for each of these users are also described in the text below. 
 
 > ## User 1: Clinician
@@ -42,27 +43,37 @@ The following users have been identified as potential users for the **Clinical S
 >>* [if error] DBMS provides a recovery platform with the necessary tools to fully or partially restore databases to their previous state.
 >>
 >> ### Component design
+>> * Monitoring cloud storage and database security issues
+>> * backup the storage if there is any issues or errors
+>> * conversant with SQL and relevant database technologies
 
-## User 3: UX Designer
-### User story
-Another user would be a UX designer. They would be able to provide updates to the user inter feedback. They would be able to update documentation that guides the use of the interface and have access to the UI framework. They would be familiar with user experience research and have good user design practices to ensure comfortable use for all possible users.
-### Use case(s)
-### Component design
+> ## User 3: UX Designer
+>> 
+>> ### User story
+>> Another user would be a UX designer. They would be able to provide updates to the user inter feedback. They would be able to update documentation that guides the use of the interface and have access to the UI framework. They would be familiar with user experience research and have good user design practices to ensure comfortable use for all possible users.
+>> ### Use case(s)
+>>
+>> ### Component design
 
-## User 4: Researchers
-### User story
-Another user would be a researcher. They would be able to obtain clinically relevant scores for assessing patient motor behaviors, but with some more customization by selecting their machine learning model(s) of choice. They would use this tool to assess patient's motor symptoms, but also build on current models by performing additional training with model(s) of interest. They would be able familiar with the context of the data, understand if a score is reflective of the patient's motor behavior, and have a broad understanding of machine learning and neural networks.
-### Use case(s)
-### Verify data format
-Simialar to the `Verify data format` use case described for the `Database administrator` above.
-#### Import/export machine learning model
-* User can choose to open a file explorer to load in a file with a custom machine learning model'sparameters
-* Interface now provides this newly imported model prior to scoring
-* After training a model, users can export the current model for future use
-### Component design
+> ## User 4: Researchers
+>> ### User story
+>> Another user would be a researcher. They would be able to obtain clinically relevant scores for assessing patient motor behaviors, but with some more customization by selecting their machine learning model(s) of choice. They would use this tool to assess patient's motor symptoms, but also build on current models by performing additional training with model(s) of interest. They would be able familiar with the context of the data, understand if a score is reflective of the patient's motor behavior, and have a broad understanding of machine learning and neural networks.
+>> 
+>> ### Use case(s)
+>> ### Verify data format
+>> Simialar to the `Verify data format` use case described for the `Database administrator` above.
+>> #### Import/export machine learning model
+>> * User can choose to open a file explorer to load in a file with a custom machine learning model'sparameters
+>> * Interface now provides this newly imported model prior to scoring
+>> * After training a model, users can export the current model for future use
+>>
+>>### Component design
 
-## User 5: ML Scientist
-### User story
-Another user would be a machine learning scientist. They would want to be able to choose or import machine learning model of choice. Be able to incorporate feedback to retrain the model based off of clinican input. They would also want to be able to export the model for future use. They would also want to have access to performance metrics of the models that have been trained to decide on which model to move forward with. Data analysts would be very familiar with Python machine learning packages and neural networks, understanding of the dataset, and good software design practices.
-### Use case(s)
-### Component design
+> ## User 5: ML Scientist
+>> ### User story
+>> Another user would be a machine learning scientist. They would want to be able to choose or import machine learning model of choice. Be able to incorporate feedback to retrain the model based off of clinican input. They would also want to be able to export the model for future use. They would also want to have access to performance metrics of the models that have been trained to decide on which model to move forward with. Data analysts would be very familiar with Python machine learning packages and neural networks, understanding of the dataset, and good software design practices.
+>> 
+>>
+>> ### Use case(s)
+>>
+>> ### Component design

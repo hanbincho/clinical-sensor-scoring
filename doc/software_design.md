@@ -12,7 +12,7 @@ The following users have been identified as potential users for the **Clinical S
 >> * User selects model(s) of choice
 >> * [if no error] Interface outputs score(s) for loaded data
 >> * [if error encountered] Interface outputs error message
->
+>>
 >> #### Experience survey
 >> * User can leave feedback about the performance of model(s) or interface
 >> * Feedback can be stored and reviewed to guide future updates
@@ -36,7 +36,7 @@ The following users have been identified as potential users for the **Clinical S
 >> * **Interface**:
 >>    - _If file is well formatted_: Notifies user and confirms that the uploaded file is properly formatted for use with software.
 >>    - _Otherwise_: Outputs error message and notifies user that uploaded file needs to be formatted.
->
+>>
 >> #### Database Management Systems(DBMS)
 >>* A database access language is required for interacting with a database from creating database to simply inserting data.
 >>* A proper DBMS must support several query languages, which are Structured query language (SQL) and MOngoDB Query Language (MQL), to interact with the database.
@@ -71,14 +71,20 @@ The following users have been identified as potential users for the **Clinical S
 >> ### Use case(s)
 >> #### Verify data format
 >> Similar to the `Verify data format` use case described above for a `Database administrator`.
->
+>>
 >>  #### Obtain score
 >> Similar to the `Obtain Score` use case as described above for a `Clinician`.
->
+>>
 >> #### Import/export machine learning model
->> * **User**: Uploads custom machine learning model's parameters
+>> * **User**: Uploads preferred/customized machine learning model for training data.
 >> * **Interface**: Uses user-provided model to train data and provide scoring. Also saves model and results.
 >> * **User**: Exports the completed trained model for future use.
+>>
+>> #### Sensitivity analysis
+>> * **User**: Provides an array of hyperparameters for tuning the ML algorithm.
+>> * **Algorithm**: Trains data using each value of hyperparamter in the supplied array and records performance.
+>> * **Interface**: Shows user a summary of obtained results using each parameter.
+>> * **User**: Based on results shown, user can infer the best performing hyperparameters for future training.
 >
 >> ### Component design
 

@@ -1,5 +1,5 @@
 
-The following users have been identified as potential users for the **Clinical Sensor Scoring** tool. The user stories, use cases and component design for each of these users are also described in the text below. 
+The following user groups have been identified as potential users for the `**Clinical Sensor Scoring**` tool. The user stories, use cases and component design for each of these users are also described in the text below. 
 
 > ## User 1: Clinician
 >> ### User story
@@ -84,13 +84,28 @@ The following users have been identified as potential users for the **Clinical S
 >> * **Interface**: Uses user-provided model to train data and provide scoring. Also saves model and results.
 >> * **User**: Exports the completed trained model for future use.
 >>
->> #### Sensitivity analysis
+>> #### Hyperparameter tuning
 >> * **User**: Provides an array of hyperparameters for tuning the ML algorithm.
 >> * **Algorithm**: Trains data using each value of hyperparamter in the supplied array and records performance.
 >> * **Interface**: Shows user a summary of obtained results using each parameter.
 >> * **User**: Based on results shown, user can infer the best performing hyperparameters for future training.
+>>
+>> #### Serve trained models
+>> * **Interface**: Shows model performance of pre-loaded ML algorithms in comparison to the user-defined algorithm.
+>> * **User**: If performance of user-defined algorithm is better, user exports model and serves to `ML scientist` for review and possible deployment in the main software to facilitate access by other users.
 >
 >> ### Component design
+>> #### Components for `Import/export machine learning model` use case
+>> * Storage for imported machine learnong models and their outputs.
+>> * User interface to present summary data of the performance of user-defined models. 
+>>
+>> #### Components for `Hypaparemeter tuning` use case
+>> * Database with values of hyperparameters
+>> * Storage for model performance during hyperparameter tuning.
+>> * User interface to describe model performance using each hyperparameter.
+>>
+>> #### Components for `Serve trained models` use case.
+>> * Pipeline for transmiting model results to `ML Scientist`.
 
 
 > ## User 5: ML Scientist
@@ -98,5 +113,32 @@ The following users have been identified as potential users for the **Clinical S
 >> Another user would be a machine learning scientist. They would want to be able to choose or import machine learning model of choice. Be able to incorporate feedback to retrain the model based off of clinican input. They would also want to be able to export the model for future use. They would also want to have access to performance metrics of the models that have been trained to decide on which model to move forward with. Data analysts would be very familiar with Python machine learning packages and neural networks, understanding of the dataset, and good software design practices.
 >
 >> ### Use case(s)
->
+>> Provide a list of ML models to choose from as the best outcome.
+>> Using the inerface obtain the model score
+>> Provide feedback if score predicted has error
+>> Provide some explainability of the model performance/ falling short.
+
 >> ### Component design
+ >> * Investigate existing solutions for the Fine-grain Image classification problem.
+ >> * Try out existing solutions (POCs) by running open-source codebases, if any.
+ >> * Evaluate existing solutions on open-source datasets.
+ >> * Define train test datsets and clinical scores - essential 
+ >> * Train and evaluate a model that can predict a clinical score. 
+ >> * Incorporate a feedback loop to capture any discrepencies in the predicted score. 
+ >> * Investigation/ Insights summary on why the model is (not) working well or how it can be improved. 
+ >> * Summary of model results – what kind of false positives/negatives does it have? In which cases it fails?
+ >> * Retrain the model for robust results. 
+ >> * Capture the evaluation metrics in the newer models. Tweak model hyper parameters and make it a robust model.
+ >> * Potentially identity the top performing model from the exploratory study
+>> * Integrate with the webpage deploying the  ML model for clinical sensor scoring. This would be an interactive webpage/html page where a user can upload a csv file and the page will show the clinical sensor score from the model. 
+>> * Potential results produced by the newer model
+>> * Explainability around model performances. 
+
+
+| Scenario                      | Expected Output                          |
+|-------------------------------|------------------------------------------|
+| File has stroke values        | Relevant score related to stroke values  |
+| File has no stroke values     | Score outside the stroke threshold       |
+| File has healthy values       | Score associated with healthy values     |
+
+

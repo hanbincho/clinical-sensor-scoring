@@ -18,12 +18,12 @@ The following users have been identified as potential users for the **Clinical S
 >> * Feedback can be stored and reviewed to guide future updates
 >
 >> ### Component design
->> #### Obtain score
+>> #### 'Obtain score'
 >> * Loading functionality for raw data
 >> * Signal processing functionality of loaded data
 >> * Database with machine learning model(s)
 >> * Interface that takes processed data and uses model of choice to output score
->> #### Experience survey
+>> #### 'Experience survey'
 >> * Interface that allows user to enter feedback
 >> * Database with received feedback
 >> * Interface that allows select users to access feedback

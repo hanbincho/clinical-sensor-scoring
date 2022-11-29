@@ -10,4 +10,3 @@ dependencies:
     - nvidia-cudnn-cu11==8.5.0.96
     - torch==1.13.0
     - typing-extensions==4.4.0
-prefix: /home/hanbincho/anaconda3/envs/senbace

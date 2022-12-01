@@ -49,9 +49,14 @@ The following user groups have been identified as potential users for the `**Cli
 >>* [if error] DBMS provides a recovery platform with the necessary tools to fully or partially restore databases to their previous state.
 >
 >> ### Component design
+>> #### `Verify data format`
+>> * Functionality to check the structure of uploaded data, such as valid data types
+>> * Functionality to identify specific errors if uploaded data is unproperly formatted
+>> #### `Database Management Systems (DBMS)
+>> * Functionality to update data (i.e. models) accessible on database
 >> * Monitoring cloud storage and database security issues
->> * backup the storage if there is any issues or errors
->> * conversant with SQL and relevant database technologies
+>> * Backup the storage if there is any issues or errors
+>> * Conversant with SQL and relevant database technologies
 
 
 > ## User 3: UX Designer

@@ -13,20 +13,22 @@ The following user groups have been identified as potential users for the `**Cli
 >> * [if no error] Interface outputs score(s) for loaded data
 >> * [if error encountered] Interface outputs error message
 >>
->> #### Experience survey
+>> #### Experience feedback
 >> * User can leave feedback about the performance of model(s) or interface
 >> * Feedback can be stored and reviewed to guide future updates
 >
 >> ### Component design
 >> #### `Obtain score`
 >> * Loading functionality for raw data
->> * Signal processing functionality of loaded data
->> * Database with machine learning model(s)
+>> * Selection of specific muscle/regions of upper extremities
+>> * Conerting functionality to take loaded data and create images to be fed into the model
+>> * Database with pretrained machine learning model(s) 
+>> * 
 >> * Interface that takes processed data and uses model of choice to output score
->> #### `Experience survey`
->> * Interface that allows user to enter feedback
->> * Database with received feedback
->> * Interface that allows select users to access feedback
+>> #### `Experience feedback`
+>> * Interface that allows user to enter expected score if predicted score is significantly off from user's expectations
+>> * Interface that allows user to enter text for qualitative feedback on model performance
+>> * Interface that allows select users to access feedback and provide updates from collected feedback
 
 
 > ## User 2: Database administrator

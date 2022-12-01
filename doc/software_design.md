@@ -22,8 +22,7 @@ The following user groups have been identified as potential users for the `**Cli
 >> * Loading functionality for raw data
 >> * Selection of specific muscle/regions of upper extremities
 >> * Conerting functionality to take loaded data and create images to be fed into the model
->> * Database with pretrained machine learning model(s) 
->> * 
+>> * Database with pretrained machine learning model(s)  
 >> * Interface that takes processed data and uses model of choice to output score
 >> #### `Experience feedback`
 >> * Interface that allows user to enter expected score if predicted score is significantly off from user's expectations
@@ -98,13 +97,13 @@ The following user groups have been identified as potential users for the `**Cli
 >
 >> ### Component design
 >> #### Components for `Import/export machine learning model` use case
->> * Storage for imported machine learnong models and their outputs.
->> * User interface to present summary data of the performance of user-defined models. 
+>> * Functionality to import custom machine learning models.
+>> * User interface to summarize outputs such as images/plots of performance of used models and time-series data. 
 >>
->> #### Components for `Hypaparemeter tuning` use case
->> * Database with values of hyperparameters
->> * Storage for model performance during hyperparameter tuning.
->> * User interface to describe model performance using each hyperparameter.
+>> #### Components for `Hyperparemeter tuning` use case
+>> * Take in particular hyperparameter values from user.
+>> * Specific hyperparameter values are used for model training and prediction.
+>> * User interface to describe model performance after specific set of hyperparameters..
 >>
 >> #### Components for `Serve trained models` use case.
 >> * Pipeline for transmiting model results to `ML Scientist`.

@@ -63,8 +63,9 @@ def generate_plots(file):
         plt.plot(sensor_data[col], 'r')
         plt.xlim(0.0)
         plt.axis('off')
-        # plt.savefig(file.split('.')[0] + '-' + col + '.png', dpi=600)
+        plt.savefig(file.split('.')[0] + '-' + col + '.png', dpi=600)
         plt.close()
+
 
 
 if __name__ == '__main__':

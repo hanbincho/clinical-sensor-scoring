@@ -2,11 +2,16 @@ name: senbace
 channels:
   - defaults
 dependencies:
-  - python=3.10.8
+  - matplotlib=3.5.3
+  - matplotlib-base=3.5.3
+  - numpy=1.23.4
+  - numpy-base=1.23.4
+  - pandas=1.5.1
   - pip:
-    - nvidia-cublas-cu11==11.10.3.66
-    - nvidia-cuda-nvrtc-cu11==11.7.99
-    - nvidia-cuda-runtime-cu11==11.7.99
-    - nvidia-cudnn-cu11==8.5.0.96
-    - torch==1.13.0
-    - typing-extensions==4.4.0
+      - nvidia-cublas-cu11==11.10.3.66
+      - nvidia-cuda-nvrtc-cu11==11.7.99
+      - nvidia-cuda-runtime-cu11==11.7.99
+      - nvidia-cudnn-cu11==8.5.0.96
+      - pillow==9.3.0
+      - torch==1.13.0
+      - torchvision==0.14.0

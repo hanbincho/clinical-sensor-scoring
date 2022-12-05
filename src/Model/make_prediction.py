@@ -6,6 +6,7 @@ import torchvision
 import os 
 import pandas as pd
 from tensorflow.keras.utils import load_img 
+import matplotlib as plt
 
 # Import packages needed for visualization and assessing performance
 import numpy as np 
@@ -73,4 +74,37 @@ def load_data(images_path, data_batch_size):
 
     return data_loader
 
+def score_prediction(test_loader, model):
+    device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
+    # if GPU is available, set it to curr_device
+    if torch.cuda.is_available():
+        dev = "cuda:0"
+    else:
+        dev = "cpu"
+        
+    curr_device = torch.device(dev)
+    # load the first batch of test_loader
+    test_features, test_labels = next(iter(test_loader))
+
+    # Use the model to get the data's predicted scores
+    best_model = torch.load(model)
+    outputs = best_model(test_features)
+
+    # Get predictions from the maximum value
+    predicted = torch.max(outputs.data, 1)[1]
+
+    # plot the first 10 test images
+    # have the title contain the predicted score and actual score
+    # for i in range(10):
+    #     pic = test_features[i]
+    #     pic = torch.tensor(pic).cpu()
+    #     pic = pic.permute(1, 2, 0) # display a PyTorch tensor as an image (i.e. make channels the last dimension)
+    #     plt.figure()
+    #     plt.imshow(pic)
+    #     pred_score = predicted[i]
+
+    #     title = 'Predicted FMA-UE Score = %f; Actual FMA-UE Score = %f'% (pred_score.item(), test_labels[i])
+    #     plt.title(title)
+    
+    return predicted

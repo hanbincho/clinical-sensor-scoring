@@ -1,3 +1,4 @@
+from streamlit_extras.switch_page_button import switch_page
 import streamlit as st 
 import pandas as pd
 import numpy as np
@@ -32,3 +33,7 @@ with col1:
        if st.button("Analyze"):
           with col2:
               st.write("Plots will be here")
+
+next = st.button("Next")
+if next:
+    switch_page("Plot")

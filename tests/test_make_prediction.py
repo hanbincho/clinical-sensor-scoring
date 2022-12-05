@@ -1,7 +1,7 @@
 import unittest
 
-from src.Model import load_data
-from src.Model import score_prediction
+from src.Model.make_prediction import load_data
+from src.Model.make_prediction import score_prediction
 
 class TestMakePrediction(uinttest.TestCase):
     def test_invalid_path_type(self):

@@ -19,7 +19,6 @@ def load_data(images_path, data_batch_size):
     ----------
     images_path : 
     data_batch_size : int
-    model_path :
 
     Returns
     ----------
@@ -89,6 +88,7 @@ def score_prediction(test_loader, model):
 
     # Use the model to get the data's predicted scores
     best_model = torch.load(model)
+    best_model.to(curr_device)
     outputs = best_model(test_features)
 
     # Get predictions from the maximum value

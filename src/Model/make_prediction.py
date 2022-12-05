@@ -17,8 +17,10 @@ def load_data(images_path, data_batch_size):
 
     Parameters
     ----------
-    images_path : 
+    images_path : str
+        An existing directory that contains all the images for prediction
     data_batch_size : int
+        A value representing the batch size when creating the data loader for the images
 
     Returns
     ----------

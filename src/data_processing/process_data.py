@@ -40,9 +40,6 @@ def generate_plots(file):
 
     """
 
-    if os.path.exists(file) != True:
-        raise FileNotFoundError("Provided file does not exist.")
-
     # Set default image size to 6 x 4.5 in
     plt.rcParams['figure.figsize'] = (6, 4.5)
 
@@ -65,8 +62,3 @@ def generate_plots(file):
         plt.axis('off')
         plt.savefig(file.split('.')[0] + '-' + col + '.png', dpi=600)
         plt.close()
-
-
-
-if __name__ == '__main__':
-    generate_plots('01_1_1.csv')

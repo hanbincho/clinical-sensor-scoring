@@ -40,6 +40,12 @@ def load_data(images_path, data_batch_size):
         
     curr_device = torch.device(dev)
 
+    # Check that images_path is a str type
+    if isinstance(images_path, str):
+        if not(os.path.exists(images_path)):
+            raise Exception("The directory given does not exist!")
+    else:
+        raise TypeError("images_path must be a string type!")
 
     # Establish transformations for each dataset
 
@@ -68,6 +74,10 @@ def load_data(images_path, data_batch_size):
 
     # Create dataset
     data_for_prediction = torch.utils.data.TensorDataset(data_img, data_labels)
+
+    if len(data_img) % data_batch_size != 0:
+        raise ValueError(
+            "The value for data_batch_size should evenly divide into the total number of images")
 
     # Create dataloader
     data_loader = train_loader = torch.utils.data.DataLoader(data_for_prediction, batch_size = data_batch_size,

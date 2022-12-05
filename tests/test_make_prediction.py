@@ -3,7 +3,7 @@ import unittest
 from src.Model.make_prediction import load_data
 from src.Model.make_prediction import score_prediction
 
-class TestMakePrediction(uinttest.TestCase):
+class TestMakePrediction(unittest.TestCase):
     def test_invalid_path_type(self):
         """
         Edge test for when a string type is not used for images_path

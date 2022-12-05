@@ -7,6 +7,7 @@ dependencies:
   - matplotlib=3.5.3
   - numpy=1.23.4
   - pandas=1.5.1
+  - python=3.9.15
   - tensorflow=2.10.0
   - pip:
       - nvidia-cublas-cu11==11.10.3.66

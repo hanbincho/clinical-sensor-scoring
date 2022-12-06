@@ -72,6 +72,9 @@ def load_data(images_path, data_batch_size):
     # Move all tensors to GPU if available
     data_img = data_img.to(curr_device)
 
+    # Convert labels to Tensor type
+    data_labels = torch.Tensor(data_labels)
+
     # Create dataset
     data_for_prediction = torch.utils.data.TensorDataset(data_img, data_labels)
 

@@ -1,5 +1,7 @@
+#Import packages
 import unittest
 import numpy as np
+import torch
 from src.Model import make_prediction as mk
 #from src.Model.make_prediction import score_prediction
 
@@ -24,7 +26,7 @@ class TestMakePrediction(unittest.TestCase):
             mk.load_data(path_val, batch_size_val)
         return
     
-    def test_normalize_image_size(self):
+    def test_normalize_image_size(path_val, batch_size_val):
         """
         Oneshot test for image is 227x227 size.
         """

@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 """
 Created on Fri Nov 18 11:22:53 2022
-
 @author: udu
 """
 
@@ -15,33 +14,22 @@ import matplotlib.pyplot as plt
 def generate_plots(file):
     """
     This function generates plots for the sensor readings records of a particular patient.
-
-
     Parameters
     ----------
     file : str, path object or file-like object.
         # CSV file containing the records form one record for a patient.
-
             * The CSV file must contain readings from only one sensor at a particular location on the patient's anatomy.
-
             * The CSV file should be named using a user-preferred scheme which distinguishes patients.
-
             * The CSV file must contain n number of columns depending on the number of axes recorded using the sensor.
-
             * The first row of the CSV file must specify an identifying tag for the sensor readings.
                     * Format of the tag should be ###-$, where;
                         * ### should be replaced by a 3 letter abbreviation for the sensor location; and
                         * $ should be replaced by the axis of measurement for the sensor.
                         * For example WRA-X to denote readings from the WRA sensor in the x-axis.
-
     Returns
     -------
     Saves PNG images of generated plots.
-
     """
-
-    #if os.path.exists(file) != True:
-        #raise FileNotFoundError("Provided file does not exist.")
 
     # Set default image size to 6 x 4.5 in
     plt.rcParams['figure.figsize'] = (6, 4.5)
@@ -65,8 +53,3 @@ def generate_plots(file):
         plt.axis('off')
         plt.savefig(file.split('.')[0] + '-' + col + '.png', dpi=600)
         plt.close()
-
-
-
-if __name__ == '__main__':
-    generate_plots('01_1_1.csv')

@@ -26,6 +26,6 @@ override = st.button("Update Score")
 if override:
     st.write("override the score")    
 if prev:
-    switch_page("Plot")
+    switch_page("show_training_plot")
 feedback = st.text_area('Feedback here')
 st.write('your feedback:', feedback)

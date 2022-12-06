@@ -18,7 +18,7 @@ col1, col2 = st.columns([4, 4])
 prev = st.button("prev")
 next = st.button("Next")
 if next:
-    switch_page("Fma")
+    switch_page("display_prediction")
 if prev:
     switch_page("load data")
 with col1:

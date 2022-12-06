@@ -93,4 +93,4 @@ with col1:
 
 next = st.button("Next")
 if next:
-    switch_page("Plot")
+    switch_page("show_training_plot")

@@ -23,3 +23,9 @@ class TestMakePrediction(unittest.TestCase):
         with self.assertRaises(Exception):
             load_data(path_val, batch_size_val)
         return
+    
+    def test_normalize_image_size(self):
+        """
+        Oneshot test for image is 227x227 size.
+        """
+        

@@ -15,5 +15,14 @@ dependencies:
       - nvidia-cuda-runtime-cu11==11.7.99
       - nvidia-cudnn-cu11==8.5.0.96
       - pillow==9.3.0
+      - streamlit==1.15.2
+      - streamlit-camera-input-live==0.2.0
+      - streamlit-card==0.0.4
+      - streamlit-embedcode==0.1.2
+      - streamlit-extras==0.2.4
+      - streamlit-faker==0.0.2
+      - streamlit-keyup==0.2.0
+      - streamlit-toggle-switch==1.0.2
+      - streamlit-vertical-slider==1.0.2
       - torch==1.13.0
       - torchvision==0.14.0

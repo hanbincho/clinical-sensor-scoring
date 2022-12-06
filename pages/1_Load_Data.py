@@ -15,7 +15,7 @@ import process_data
 
 # Import required packages
 def plot(file):
-    st.set_header("Plots from Raw Data")
+    st.header("Plots from Raw Data")
     # Set default image size to 6 x 4.5 in
     plt.rcParams['figure.figsize'] = (6, 4.5)
 

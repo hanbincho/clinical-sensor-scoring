@@ -40,8 +40,8 @@ def generate_plots(file):
 
     """
 
-    if os.path.exists(file) != True:
-        raise FileNotFoundError("Provided file does not exist.")
+    #if os.path.exists(file) != True:
+        #raise FileNotFoundError("Provided file does not exist.")
 
     # Set default image size to 6 x 4.5 in
     plt.rcParams['figure.figsize'] = (6, 4.5)

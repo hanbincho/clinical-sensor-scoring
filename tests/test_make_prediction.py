@@ -1,7 +1,7 @@
 import unittest
-
-from src.Model.make_prediction import load_data
-from src.Model.make_prediction import score_prediction
+import numpy as np
+from src.Model import make_prediction as mk
+#from src.Model.make_prediction import score_prediction
 
 class TestMakePrediction(unittest.TestCase):
     def test_invalid_path_type(self):
@@ -11,7 +11,7 @@ class TestMakePrediction(unittest.TestCase):
         path_val = 8
         batch_size_val = 1
         with self.assertRaises(TypeError):
-            load_data(path_val, batch_size_val)
+            mk.load_data(path_val, batch_size_val)
         return
 
     def test_nonexistent_path(self):
@@ -21,11 +21,20 @@ class TestMakePrediction(unittest.TestCase):
         path_val = 'thisPathDoesnotExist'
         batch_size_val = 1
         with self.assertRaises(Exception):
-            load_data(path_val, batch_size_val)
+            mk.load_data(path_val, batch_size_val)
         return
     
     def test_normalize_image_size(self):
         """
         Oneshot test for image is 227x227 size.
         """
-        
+        mk.load_data(path_val, batch_size_val)
+        image_size = img.shape()
+        np.testing.assert_almost_equal(image_size, (227,227))
+
+    def gpu_availability(self):
+        """
+        Check the GPU is running or not
+        """
+        device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+        return device    

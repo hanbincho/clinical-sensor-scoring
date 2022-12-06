@@ -2,7 +2,12 @@
 import unittest
 import numpy as np
 import torch
-from src.Model import make_prediction as mk
+import os
+import tensorflow
+from senbace import make_prediction as mk
+from senbace import alexnet_model as cnn
+
+
 #from src.Model.make_prediction import score_prediction
 
 class TestMakePrediction(unittest.TestCase):
@@ -26,12 +31,23 @@ class TestMakePrediction(unittest.TestCase):
             mk.load_data(path_val, batch_size_val)
         return
     
-    # def test_normalize_image_size(self):
+    def test_data_loader_type(self):
+        """
+        One shot test for data loader type.
+        """
+        batch_size_val = 1
+        path_val = os.getcwd()
+        load = mk.load_data(path_val, batch_size_val) # need actual path
+        np.testing.assert_almost_equal(type(load), torch)
+    
+    # def test_predict_type(self):
     #     """
-    #     Oneshot test for image is 227x227 size.
+    #     One shot test for predict type.
     #     """
     #     batch_size_val = 1
-    #     mk.load_data(path_val, batch_size_val)
-    #     image_size = img.shape()
-    #     np.testing.assert_almost_equal(image_size, (227,227))
+    #     path_val = os.getcwd()
+    #     model = cnn.forward
+    #     load = mk.load_data(path_val, batch_size_val)
+    #     predict = mk.score_prediction(load, model)
+    #     np.testing.assert_almost_equal(type(predict), tensor) 
 

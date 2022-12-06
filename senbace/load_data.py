@@ -10,12 +10,13 @@ import matplotlib.pyplot as plt
 import sys
 
 sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'src/data_processing'))
+
 import process_data
 
 
 # Import required packages
 def plot(file):
-    st.header("Plots from Raw Data")
+    ''''''
     # Set default image size to 6 x 4.5 in
     plt.rcParams['figure.figsize'] = (6, 4.5)
 
@@ -30,6 +31,7 @@ def plot(file):
     if not all(dataframe_col_name_check):
         raise ValueError("One or more column names in CSV file do not match the required format.")
     with col2:
+        st.header("Plots from Raw Data")
         for col in sensor_data:
             fig = plt.figure()
             plt.plot(sensor_data[col], 'r')
@@ -51,6 +53,12 @@ st.sidebar.header("Load Data")
 col1, col2 = st.columns([3, 4])
 
 with col1:
+    role_option = st.selectbox('Please choose your role',
+                               ('Clinician', 'ML Scientist'))
+    if role_option == 'Clinician':
+        nav_page = 'clinic'
+    elif role_option == 'ML Scientist':
+        nav_page = 'ML'
     patient_input = st.text_input(
         "Patient Name",
         label_visibility=st.session_state.visibility,
@@ -66,13 +74,13 @@ with col1:
         "Select Model",
         ('Model 1', 'Model 2', 'Upload a model'),
     )
-    if (model_option == 'Upload a model'):
+    if model_option == 'Upload a model':
         upload_model = st.file_uploader("Choose a file")
 
-    if (loca_option == 'Upload a CSV file'):
+    if loca_option == 'Upload a CSV file':
         upload_csv = st.file_uploader("Choose a file")
         if upload_csv:
-            plot(upload_csv)
+            process_data.generate_plot(upload_csv)
 
         # if os.path.exists(file) != True:
         # raise FileNotFoundError("Provided file does not exist.")

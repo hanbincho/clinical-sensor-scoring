@@ -1,3 +1,6 @@
+# Import needed packages
+from alexnet_model import AlexNet
+
 def create_model(model_name):
   if model_name == "AlexNet":
     # create model 

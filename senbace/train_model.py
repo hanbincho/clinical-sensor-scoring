@@ -8,7 +8,7 @@ import os
 import matplotlib.pyplot as plt
 import torchvision.models as models
 import make_prediction as pred
-import Alexnet_model as cnn
+import alexnet_model as cnn
 
 # check if GPU is available for use
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")

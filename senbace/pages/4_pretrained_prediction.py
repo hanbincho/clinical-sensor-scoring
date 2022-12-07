@@ -35,22 +35,18 @@ st.write("Current directory: ", os.getcwd())
 if image_file is not None:
     st.write(image_file.name)
     # Create a directory and save image file 
-    image_path = os.getcwd()+'/data/download_image/'
+    # image_path = os.getcwd()+'/data/download_image/'
+    image_path = os.getcwd()+'/data/image/'
     st.write(image_path)
-    st.download_button(
-        label = "Download data locally",
-        data = image_file,
-        file_name = image_path+image_file.name+".png",
-        mime="image/png"
-    )
 
 if model_file is not None:
     st.write(model_file.name)
-    model_path = os.getcwd()+'/data/download_model/'+model_file.name
+    # model_path = os.getcwd()+'/data/download_model/'+model_file.name
+    model_path = os.getcwd()+'/data/model/'+model_file.name
     st.write(model_path)
 
 if option_test:
     data_loader = load_data(image_path, int(user_batch_size))
     pred_score = score_prediction(data_loader, model_path)
-    st.write("Result:", str(pred_score))
-    st.write(type(pred_score))
+    for i in range(len(pred_score)):
+        st.write("Result for "+ image_file.name + ": " + str(pred_score[i]))

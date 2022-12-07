@@ -102,12 +102,17 @@ def score_prediction(test_loader, model):
     test_features, test_labels = next(iter(test_loader))
 
     # Use the model to get the data's predicted scores
-    best_model = torch.load(model)
+    best_model = torch.load(model, map_location=torch.device(dev))
     best_model.to(curr_device)
     outputs = best_model(test_features)
 
     # Get predictions from the maximum value
     predicted = torch.max(outputs.data, 1)[1]
+
+    # Convert from tensor to numpy
+    predicted = predicted.cpu().detach().numpy()
+    predicted += 14
+
 
     # plot the first 10 test images
     # have the title contain the predicted score and actual score

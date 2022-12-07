@@ -79,8 +79,10 @@ def load_data(images_path, data_batch_size):
     data_for_prediction = torch.utils.data.TensorDataset(data_img, data_labels)
 
     if len(data_img) % data_batch_size != 0:
+        print(len(data_img))
+        print(data_batch_size)
         raise ValueError(
-            "The value for data_batch_size should evenly divide into the total number of images")
+            "The value for data_batch_size should evenly divide into the total number of images %s", str(len(data_img)))
 
     # Create dataloader
     data_loader = train_loader = torch.utils.data.DataLoader(data_for_prediction, batch_size = data_batch_size,
@@ -98,33 +100,23 @@ def score_prediction(test_loader, model):
         dev = "cpu"
         
     curr_device = torch.device(dev)
+
     # load the first batch of test_loader
     test_features, test_labels = next(iter(test_loader))
 
     # Use the model to get the data's predicted scores
     best_model = torch.load(model, map_location=torch.device(dev))
     best_model.to(curr_device)
-    outputs = best_model(test_features)
 
-    # Get predictions from the maximum value
-    predicted = torch.max(outputs.data, 1)[1]
-
-    # Convert from tensor to numpy
-    predicted = predicted.cpu().detach().numpy()
-    predicted += 14
-
-
-    # plot the first 10 test images
-    # have the title contain the predicted score and actual score
-    # for i in range(10):
-    #     pic = test_features[i]
-    #     pic = torch.tensor(pic).cpu()
-    #     pic = pic.permute(1, 2, 0) # display a PyTorch tensor as an image (i.e. make channels the last dimension)
-    #     plt.figure()
-    #     plt.imshow(pic)
-    #     pred_score = predicted[i]
-
-    #     title = 'Predicted FMA-UE Score = %f; Actual FMA-UE Score = %f'% (pred_score.item(), test_labels[i])
-    #     plt.title(title)
+    # Iterate through the test loader and find predictions for each image
+    predictions = []
+    for i, (test_features, test_labels) in enumerate(test_loader):
+        best_model.eval()
+        outputs = best_model(test_features)
+        # Get predictions from the maximum value
+        predicted = torch.max(outputs.data, 1)[1]
+        # Convert from tensor to numpy
+        predicted = predicted.cpu().detach().numpy()
+        predictions.append(predicted+14)
     
-    return predicted
+    return predictions

@@ -22,7 +22,7 @@ col1, col2 = st.columns([2, 1])
 
 with col1:
     # Uploading widgets for needed files
-    image_file = st.file_uploader("Choose an image file")
+    image_file = st.file_uploader("Choose an image file", accept_multiple_files = True)
     model_file = st.file_uploader("Choose a model file")
 
     # Text box for batch size with default = 1
@@ -36,21 +36,24 @@ with col2:
     text_out = st.text_area("Feedback: ", "Temporary text for now...")
 
 if image_file is not None:
-    st.write("Loaded: ", image_file.name)
     # Check that download directory for image exists
-    download_image_path = os.getcwd()+"/data/"
+    download_image_path = os.getcwd()+"/senbace/data/"
     if not os.path.exists(download_image_path):
         # If not, make it
         os.makedirs(download_image_path)
-    # Then save the image
-    img_to_save = Image.open(image_file)
-    img_to_save.save(download_image_path+image_file.name)
+
+    st.write("Loaded: ")
+    for i in range(len(image_file)):
+        st.write(image_file[i].name)
+        # Then save the image
+        img_to_save = Image.open(image_file[i])
+        img_to_save.save(download_image_path+image_file[i].name)
 
 
 if model_file is not None:
     st.write("Loaded: ", model_file.name)
     # Check that download directory for model exists
-    download_model_path = os.getcwd()+"/model/"
+    download_model_path = os.getcwd()+"/senbace/model/"
     if not os.path.exists(download_model_path):
         # If not, make it
         os.makedirs(download_model_path)
@@ -65,6 +68,7 @@ if model_file is not None:
 if predict_pressed:
     data_loader = load_data(download_image_path, int(user_batch_size))
     pred_score = score_prediction(data_loader, download_model_path+model_file.name)
-    for i in range(len(pred_score)):
-        st.write("Result for "+ image_file.name + ": " + str(pred_score[i]))
+    # Iterate through all images and print out the corresponding score
+    for i in range(len(image_file)):
+        st.write("Result for "+ image_file[i].name + ": " + str(pred_score[i]))
         st.image(img_to_save)

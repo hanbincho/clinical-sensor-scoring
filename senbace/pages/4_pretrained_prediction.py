@@ -3,9 +3,9 @@ import pandas as pd
 import numpy as np
 import os
 from streamlit_extras.switch_page_button import switch_page
-from senbace import load_data
-from senbace import score_prediction
-from senbace import alexnet_model
+from make_prediction import load_data
+from make_prediction import score_prediction
+from alexnet_model import AlexNet
 
 
 st.set_page_config(page_title="Pretrained Model Predictions")

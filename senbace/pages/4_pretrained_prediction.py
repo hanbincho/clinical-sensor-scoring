@@ -6,6 +6,8 @@ from streamlit_extras.switch_page_button import switch_page
 from make_prediction import load_data
 from make_prediction import score_prediction
 from alexnet_model import AlexNet
+from PIL import Image
+from io import BytesIO
 
 
 st.set_page_config(page_title="Pretrained Model Predictions")
@@ -36,17 +38,27 @@ if image_file is not None:
     st.write(image_file.name)
     # Create a directory and save image file 
     # image_path = os.getcwd()+'/data/download_image/'
-    image_path = os.getcwd()+'/data/image/'
+    image_path = os.getcwd()+"/data/image/"
     st.write(image_path)
+    # Create download directory and save the image
+    download_path = os.getcwd()+"/data/download_image/"
+    img_to_save = Image.open(image_file)
+    img_to_save.save(download_path+image_file.name)
+
 
 if model_file is not None:
     st.write(model_file.name)
     # model_path = os.getcwd()+'/data/download_model/'+model_file.name
     model_path = os.getcwd()+'/data/model/'+model_file.name
     st.write(model_path)
+    download_model_path = os.getcwd()+"/data/download_model/"+model_file.name
+    model_data = model_file.getvalue()
+    model_to_save = open(download_model_path, "wb")
+    model_to_save.write(model_data)
+    model_to_save.close()
 
 if option_test:
-    data_loader = load_data(image_path, int(user_batch_size))
-    pred_score = score_prediction(data_loader, model_path)
+    data_loader = load_data(download_path, int(user_batch_size))
+    pred_score = score_prediction(data_loader, download_model_path)
     for i in range(len(pred_score)):
         st.write("Result for "+ image_file.name + ": " + str(pred_score[i]))

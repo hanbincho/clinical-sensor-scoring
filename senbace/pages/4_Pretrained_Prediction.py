@@ -71,4 +71,9 @@ if predict_pressed:
     # Iterate through all images and print out the corresponding score
     for i in range(len(image_file)):
         st.write("Result for "+ image_file[i].name + ": " + str(pred_score[i]))
-        st.image(img_to_save)
+        # Delete the downloaded image files
+        if os.path.exists(download_image_path+image_file[i].name):
+            os.remove(download_image_path+image_file[i].name)
+    # Also delete the downloaded model file
+        if os.path.exists(download_model_path+model_file.name):
+            os.remove(download_model_path+model_file.name)

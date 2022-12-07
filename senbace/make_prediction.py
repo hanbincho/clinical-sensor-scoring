@@ -58,8 +58,6 @@ def load_data(images_path, data_batch_size):
     # Load images for prediction
     data_img = []
     for imgFile in os.listdir(images_path):
-        split_test = (imgFile.split('_'))
-        subj_ID = int(split_test[0].replace('S', ''))
         # append labels of images
         imgPath = images_path+imgFile
         img = load_img(imgPath, target_size = (227, 227))

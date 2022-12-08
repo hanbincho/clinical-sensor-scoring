@@ -53,12 +53,6 @@ st.sidebar.header("Load Data")
 col1, col2 = st.columns([3, 4])
 
 with col1:
-    role_option = st.selectbox('Please choose your role',
-                               ('Clinician', 'ML Scientist'))
-    if role_option == 'Clinician':
-        nav_page = 'clinic'
-    elif role_option == 'ML Scientist':
-        nav_page = 'ML'
     patient_input = st.text_input(
         "Patient Name",
         label_visibility=st.session_state.visibility,

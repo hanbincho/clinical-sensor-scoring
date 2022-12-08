@@ -31,7 +31,9 @@ with col1:
 with col2:
     # Text input box for feedback
     text_out = st.text_area("Feedback: ", "Temporary text for now...")
-
+    prev = st.button("previous page")
+    if prev:
+        switch_page("display prediction")
 if option == 'AlexNet':
     st.write('You chose AlexNet')
     # Check that download directory for image exists
@@ -46,7 +48,6 @@ if option == 'AlexNet':
         # Then save the image
         img_to_save = Image.open(image_file[i])
         img_to_save.save(download_image_path+image_file[i].name)
-
 
 if model_file is not None:
     st.write("Loaded: ", model_file.name)

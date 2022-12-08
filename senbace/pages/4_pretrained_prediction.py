@@ -77,3 +77,6 @@ if predict_pressed:
     # Also delete the downloaded model file
         if os.path.exists(download_model_path+model_file.name):
             os.remove(download_model_path+model_file.name)
+prev = st.button("previous page")
+if prev:
+    switch_page("display prediction")

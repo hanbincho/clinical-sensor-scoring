@@ -30,14 +30,14 @@ class TestMakePrediction(unittest.TestCase):
             load_data(path_val, batch_size_val)
         return
     
-    # def test_data_loader_output(self):
-    #     """
-    #     Smoke test to see if load_data function can run
-    #     """
-    #     batch_size_val = 1
-    #     path_val = os.getcwd()+"/WRA/"
-    #     load_data(path_val, batch_size_val)
-    #     return
+    def test_data_loader_output(self):
+        """
+        Smoke test to see if load_data function can run
+        """
+        batch_size_val = 1
+        path_val = os.getcwd()+"/tests/test_images/"
+        load_data(path_val, batch_size_val)
+        return
     
     # def test_predict_type(self):
     #     """

@@ -1,19 +1,36 @@
+"""Predict Scores
+This script allows a user to feed in image data and obtain score predictions for each.
+
+This requires the following to be installed within the Python environment:
+    * os
+    * torch
+    * torchvision
+    * tensorflow
+    * numpy
+
+This file can be imported and contains the following functions:
+    * load_data: returns a dataloader type that can be used as an input for predicting
+        scores
+    * score_prediction: returns a list of values reflecting the score predicted for
+      each input
+"""
+# Import packages for directory navigation
+import os
+
 # Import packages for creating machine learning model
 import torch
 import torchvision
 
 # Import packages needed for data preprocessing
-import os
-import pandas as pd
 from tensorflow.keras.utils import load_img
-import matplotlib as plt
 
 # Import packages needed for visualization and assessing performance
 import numpy as np
 
 # Definitions for necessary functions
 def load_data(images_path, data_batch_size):
-    """ Access image data and the pre-trained model, if available
+    """
+    Access image data to create a dataloader for prediction
 
     Parameters
     ----------
@@ -27,11 +44,7 @@ def load_data(images_path, data_batch_size):
     DataLoader
         A dataloader that represents the dataset of images ready for prediction
 
-
     """
-    # check if GPU is available for use
-    device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-
     # if GPU is available, set it to curr_device
     if torch.cuda.is_available():
         dev = "cuda:0"
@@ -42,7 +55,7 @@ def load_data(images_path, data_batch_size):
 
     # Check that images_path is a str type
     if isinstance(images_path, str):
-        if not(os.path.exists(images_path)):
+        if not os.path.exists(images_path):
             raise Exception("The directory given does not exist!")
     else:
         raise TypeError("images_path must be a string type!")
@@ -57,10 +70,10 @@ def load_data(images_path, data_batch_size):
 
     # Load images for prediction
     data_img = []
-    for imgFile in os.listdir(images_path):
+    for img_file in os.listdir(images_path):
         # append labels of images
-        imgPath = images_path+imgFile
-        img = load_img(imgPath, target_size = (227, 227))
+        img_path = images_path+img_file
+        img = load_img(img_path, target_size = (227, 227))
         img = data_transforms(img) # (3 x 227 x 227)
         data_img.append(img)
 
@@ -80,11 +93,12 @@ def load_data(images_path, data_batch_size):
         print(len(data_img))
         print(data_batch_size)
         raise ValueError(
-            "The value for data_batch_size should evenly divide into the total number of images %s", str(len(data_img)))
+            "The value for data_batch_size should evenly divide into the total \
+            number of images")
 
     # Create dataloader
-    data_loader = train_loader = torch.utils.data.DataLoader(data_for_prediction, batch_size = data_batch_size,
-                                          shuffle = True)
+    data_loader = torch.utils.data.DataLoader(data_for_prediction, \
+        batch_size = data_batch_size, shuffle = True)
 
     return data_loader
 
@@ -105,8 +119,6 @@ def score_prediction(test_loader, model):
         DESCRIPTION.
 
     """
-    device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-
     # if GPU is available, set it to curr_device
     if torch.cuda.is_available():
         dev = "cuda:0"
@@ -115,16 +127,13 @@ def score_prediction(test_loader, model):
 
     curr_device = torch.device(dev)
 
-    # load the first batch of test_loader
-    test_features, test_labels = next(iter(test_loader))
-
     # Use the model to get the data's predicted scores
     best_model = torch.load(model, map_location=torch.device(dev))
     best_model.to(curr_device)
 
     # Iterate through the test loader and find predictions for each image
     predictions = []
-    for i, (test_features, test_labels) in enumerate(test_loader):
+    for _, (test_features, _) in enumerate(test_loader):
         best_model.eval()
         outputs = best_model(test_features)
         # Get predictions from the maximum value

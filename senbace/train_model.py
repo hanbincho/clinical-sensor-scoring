@@ -7,8 +7,8 @@ from tensorflow.keras.utils import load_img
 import os
 import matplotlib.pyplot as plt
 import torchvision.models as models
-import make_prediction as pred
-import alexnet_model as cnn
+from make_prediction import load_data
+from alexnet_model import AlexNet
 
 # check if GPU is available for use
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
@@ -29,7 +29,7 @@ def train_data(num_epochs, learning_rate, data_batch_size):
     torch.manual_seed(seed)
 
     # create model 
-    model = cnn.AlexNet(num_classes=7) # since score can range from 0-20
+    model = AlexNet(num_classes=7) # since score can range from 0-20
     model.to(curr_device) # move the model to GPU
 
     #Definition of hyperparameters
@@ -51,7 +51,7 @@ def train_data(num_epochs, learning_rate, data_batch_size):
         correct = 0
         total = 0
         running_loss = 0
-        for i, (images, labels) in enumerate(pred.load_data()):
+        for i, (images, labels) in enumerate(load_data()):
             model.train()
             train = (images.view(data_batch_size,3,227,227))
             labels = (labels)

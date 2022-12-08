@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 from streamlit_extras.switch_page_button import switch_page
 
-st.set_page_config(page_title="FMA Score")
+st.set_page_config(page_title="Display Prediction")
 if "visibility" not in st.session_state:
     st.session_state.visibility = "visible"
     st.session_state.disabled = False
@@ -26,6 +26,6 @@ override = st.button("Update Score")
 if override:
     st.write("override the score")    
 if prev:
-    switch_page("show_training_plot")
+    switch_page("show training plot")
 feedback = st.text_area('Feedback here')
 st.write('your feedback:', feedback)

@@ -21,7 +21,7 @@ else:
     
 curr_device = torch.device(dev)
 
-def train_model(num_epochs, learning_rate, data_batch_size):
+def train_data(num_epochs, learning_rate, data_batch_size):
     # Set the seed value
     # Ensure reproducibility for each run
     seed = torch.initial_seed() % (2**32-1)

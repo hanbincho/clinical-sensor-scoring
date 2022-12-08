@@ -7,8 +7,8 @@ from tensorflow.keras.utils import load_img
 import os
 import matplotlib.pyplot as plt
 import torchvision.models as models
-from make_prediction import load_data
-from alexnet_model import AlexNet
+from .make_prediction import load_data
+from .alexnet_model import AlexNet
 
 # check if GPU is available for use
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
@@ -21,7 +21,7 @@ else:
     
 curr_device = torch.device(dev)
 
-def train_data(num_epochs, learning_rate, data_batch_size):
+def train_data(num_epochs, learning_rate, data_batch_size, images_path):
     # Set the seed value
     # Ensure reproducibility for each run
     seed = torch.initial_seed() % (2**32-1)
@@ -51,7 +51,7 @@ def train_data(num_epochs, learning_rate, data_batch_size):
         correct = 0
         total = 0
         running_loss = 0
-        for i, (images, labels) in enumerate(load_data()):
+        for i, (images, labels) in enumerate(load_data(images_path, data_batch_size)):
             model.train()
             train = (images.view(data_batch_size,3,227,227))
             labels = (labels)

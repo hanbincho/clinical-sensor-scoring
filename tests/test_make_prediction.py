@@ -5,7 +5,7 @@ import torch
 import os
 import tensorflow
 from senbace import load_data
-
+from senbace import train_data
 #from src.Model.make_prediction import score_prediction
 
 class TestMakePrediction(unittest.TestCase):
@@ -34,7 +34,7 @@ class TestMakePrediction(unittest.TestCase):
         Smoke test to see if load_data function can run
         """
         batch_size_val = 1
-        path_val = os.getcwd()+"/clinical-sensor-scoring/WRA/"
+        path_val = "WRA/"#os.getcwd()+"/clinical-sensor-scoring/WRA/"
         load_data(path_val, batch_size_val)
         return
     
@@ -49,12 +49,13 @@ class TestMakePrediction(unittest.TestCase):
     #     predict = score_prediction(load, model)
     #     np.testing.assert_almost_equal(type(predict), int) 
         
-    # def test_train_model():
-    #     """
-    #     Smoke Test for train model
-    #     """
-    #     tm.train_model(num_epochs=10, 
-    #                    learning_rate=.001, 
-    #                    data_batch_size=1)
+    def test_train_model():
+        """
+        Smoke Test for train model
+        """
+        train_data(num_epochs=10, 
+                       learning_rate=.001, 
+                       data_batch_size=1)
+        return
         
 

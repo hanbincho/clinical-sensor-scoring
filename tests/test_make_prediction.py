@@ -31,24 +31,23 @@ class TestMakePrediction(unittest.TestCase):
     
     def test_data_loader_output(self):
         """
-        Smoke test for data loader type.
+        Smoke test to see if load_data function can run
         """
         batch_size_val = 1
-        path_val = os.getcwd()
-        #load = mk.load_data(path_val, batch_size_val) # need actual path
-        #np.testing.assert_almost_equal(type(load), torch)
+        path_val = os.getcwd()+"/clinical-sensor-scoring/WRA/"
         load_data(path_val, batch_size_val)
+        return
     
     # def test_predict_type(self):
     #     """
     #     One shot test for predict type.
     #     """
     #     batch_size_val = 1
-    #     path_val = os.getcwd()
+    #     path_val = os.getcwd()+"/WRA/"
     #     model = forward()
     #     load = load_data(path_val, batch_size_val)
     #     predict = score_prediction(load, model)
-    #     np.testing.assert_almost_equal(type(predict), tensor) 
+    #     np.testing.assert_almost_equal(type(predict), int) 
         
     # def test_train_model():
     #     """

@@ -40,11 +40,11 @@ class TestMakePrediction(unittest.TestCase):
     
     # def test_predict_type(self):
     #     """
-    #     One shot test for predict type.
+    #     Smoke test to see if score_prediction function can run
     #     """
     #     batch_size_val = 1
-    #     path_val = os.getcwd()+"/WRA/"
-    #     model = forward()
+    #     path_val = os.getcwd()+"/clinical-sensor-scoring/WRA/"
+    #     # model = forward() # model should be a path to a .pth file type
     #     load = load_data(path_val, batch_size_val)
     #     predict = score_prediction(load, model)
     #     np.testing.assert_almost_equal(type(predict), int) 

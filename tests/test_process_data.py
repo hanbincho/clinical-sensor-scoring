@@ -1,6 +1,7 @@
 # Import required modules
 import unittest
 from senbace import process_data
+import os
 
 class TestGeneratePlots(unittest.TestCase):
 
@@ -11,7 +12,7 @@ class TestGeneratePlots(unittest.TestCase):
 
         The names of the columns in the correct format, but in upper-case.
         """
-        process_data.generate_plots('./random_signals/smoke_test_signal1.csv')
+        process_data.generate_plots(os.getcwd() + 'tests/random_test_signals/smoke_test_signal1.csv')
 
     def test_smoke2():
         """
@@ -19,7 +20,7 @@ class TestGeneratePlots(unittest.TestCase):
 
         The names of the columns in the correct format, but in lower-case.
         """
-        process_data.generate_plots('./random_signals/smoke_test_signal2.csv')
+        process_data.generate_plots(os.getcwd() + 'tests/random_test_signals/smoke_test_signal2.csv')
 
     def test_edge_case1(self):
         """
@@ -29,7 +30,7 @@ class TestGeneratePlots(unittest.TestCase):
         format as specified in the `process_data` Docstring.
         """
         with self.assertRaises(ValueError):
-            process_data.generate_plots('./random_signals/edge_case_test_signal1.csv')
+            process_data.generate_plots(os.getcwd() + 'tests/random_test_signals/edge_case_test_signal1.csv')
 
     def test_edge_case2(self):
         """
@@ -41,4 +42,4 @@ class TestGeneratePlots(unittest.TestCase):
         is different from that used in the test above.
         """
         with self.assertRaises(ValueError):
-            process_data.generate_plots('./random_signals/edge_case_test_signal2.csv')
+            process_data.generate_plots(os.getcwd() + 'tests/random_test_signals/edge_case_test_signal2.csv')

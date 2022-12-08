@@ -22,20 +22,18 @@ col1, col2 = st.columns([2, 1])
 
 with col1:
     # Uploading widgets for needed files
-    image_file = st.file_uploader("Choose an image file", accept_multiple_files = True)
-    model_file = st.file_uploader("Choose a model file")
-
-    # Text box for batch size with default = 1
-    user_batch_size = st.text_input("Batch Size", 1)
+    option = st.radio("Select an untrained model to train:", 
+    ('AlexNet', 'VGG', 'ResNet', 'Custom'))
 
     # Button to start prediction
-    predict_pressed = st.button("Predict Scores")
+    train_pressed = st.button("Train")
 
 with col2:
     # Text input box for feedback
     text_out = st.text_area("Feedback: ", "Temporary text for now...")
 
-if image_file is not None:
+if option == 'AlexNet':
+    st.write('You chose AlexNet')
     # Check that download directory for image exists
     download_image_path = os.getcwd()+"/senbace/data/"
     if not os.path.exists(download_image_path):

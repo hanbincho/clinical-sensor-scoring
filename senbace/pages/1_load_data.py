@@ -16,6 +16,24 @@ import process_data
 
 # Import required packages
 def plot(file):
+    """
+
+
+    Parameters
+    ----------
+    file : TYPE
+        DESCRIPTION.
+
+    Raises
+    ------
+    ValueError
+        DESCRIPTION.
+
+    Returns
+    -------
+    None.
+
+    """
     ''''''
     # Set default image size to 6 x 4.5 in
     plt.rcParams['figure.figsize'] = (6, 4.5)

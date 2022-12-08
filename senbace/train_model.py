@@ -18,17 +18,39 @@ if torch.cuda.is_available():
     dev = "cuda:0"
 else:
     dev = "cpu"
-    
+
 curr_device = torch.device(dev)
 
 def train_data(num_epochs, learning_rate, data_batch_size, images_path):
+    """
+
+
+    Parameters
+    ----------
+    num_epochs : TYPE
+        DESCRIPTION.
+    learning_rate : TYPE
+        DESCRIPTION.
+    data_batch_size : TYPE
+        DESCRIPTION.
+    images_path : TYPE
+        DESCRIPTION.
+
+    Returns
+    -------
+    accuracy_list : TYPE
+        DESCRIPTION.
+    loss_list : TYPE
+        DESCRIPTION.
+
+    """
     # Set the seed value
     # Ensure reproducibility for each run
     seed = torch.initial_seed() % (2**32-1)
     np.random.seed(seed)
     torch.manual_seed(seed)
 
-    # create model 
+    # create model
     model = AlexNet(num_classes=7) # since score can range from 0-20
     model.to(curr_device) # move the model to GPU
 
@@ -69,11 +91,11 @@ def train_data(num_epochs, learning_rate, data_batch_size, images_path):
             optimizer.step()
             count += 1
             running_loss += loss.data
-            
+
             predicted = torch.max(outputs.data, 1)[1]
             correct += (predicted == labels).sum()
             total += len(labels)
         accuracy_list.append(correct/total)
         loss_list.append(running_loss/i+1)
-        
+
     return accuracy_list, loss_list

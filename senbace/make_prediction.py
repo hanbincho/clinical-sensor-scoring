@@ -1,15 +1,15 @@
 # Import packages for creating machine learning model
-import torch 
+import torch
 import torchvision
 
 # Import packages needed for data preprocessing
-import os 
+import os
 import pandas as pd
-from tensorflow.keras.utils import load_img 
+from tensorflow.keras.utils import load_img
 import matplotlib as plt
 
 # Import packages needed for visualization and assessing performance
-import numpy as np 
+import numpy as np
 
 # Definitions for necessary functions
 def load_data(images_path, data_batch_size):
@@ -24,10 +24,10 @@ def load_data(images_path, data_batch_size):
 
     Returns
     ----------
-    DataLoader 
+    DataLoader
         A dataloader that represents the dataset of images ready for prediction
 
-    
+
     """
     # check if GPU is available for use
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
@@ -37,7 +37,7 @@ def load_data(images_path, data_batch_size):
         dev = "cuda:0"
     else:
         dev = "cpu"
-        
+
     curr_device = torch.device(dev)
 
     # Check that images_path is a str type
@@ -89,6 +89,22 @@ def load_data(images_path, data_batch_size):
     return data_loader
 
 def score_prediction(test_loader, model):
+    """
+
+
+    Parameters
+    ----------
+    test_loader : TYPE
+        DESCRIPTION.
+    model : TYPE
+        DESCRIPTION.
+
+    Returns
+    -------
+    predictions : TYPE
+        DESCRIPTION.
+
+    """
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
     # if GPU is available, set it to curr_device
@@ -96,7 +112,7 @@ def score_prediction(test_loader, model):
         dev = "cuda:0"
     else:
         dev = "cpu"
-        
+
     curr_device = torch.device(dev)
 
     # load the first batch of test_loader
@@ -116,5 +132,5 @@ def score_prediction(test_loader, model):
         # Convert from tensor to numpy
         predicted = predicted.cpu().detach().numpy()
         predictions.append(predicted+14)
-    
+
     return predictions

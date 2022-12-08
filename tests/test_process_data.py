@@ -2,7 +2,7 @@
 import unittest
 from senbace import process_data
 
-class TestGeneratePlots(unittest.Testcase):
+class TestGeneratePlots(unittest.TestCase):
 
 
     def test_smoke1():

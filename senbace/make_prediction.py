@@ -88,6 +88,7 @@ def load_data(images_path, data_batch_size, scores_path=""):
 
     # Load images for prediction
     data_img = []
+    data_labels = []
     for img_file in os.listdir(images_path):
         # append labels of images
         img_path = images_path+img_file

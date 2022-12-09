@@ -6,7 +6,7 @@ Analyze sensor activity from motor-impaired individuals to determine clinically 
 #### Data- https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/FU3QZ9
 ##### Reference Paper - https://academic.oup.com/gigascience/article/10/6/giab043/6304920?login=false
 
-~~~ ToDo
+## ToD0
 Repository structure
 * Use tree to generate this in the command line, screenshot, then attach image here. 
 

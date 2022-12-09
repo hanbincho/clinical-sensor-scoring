@@ -1,4 +1,5 @@
 # <img src= "doc/electromyography.png" height="60"></img> Sensor Based Clinical Evaluations (SenBaCE)
+[![Python Package using Conda](https://github.com/hanbincho/clinical-sensor-scoring/actions/workflows/python-package-conda.yml/badge.svg)](https://github.com/hanbincho/clinical-sensor-scoring/actions/workflows/python-package-conda.yml)
 
 Analyze sensor activity from motor-impaired individuals to determine clinically relevant scores. Provide a quantitative evaluation of the impaired conditions, and to properly inform the rehabilitative process. 
 

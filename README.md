@@ -1,4 +1,4 @@
-# Clinical-Sensor-Scoring
+# <img src= "doc/electromyography.png" height="60"></img> Sensor Based Clinical Evaluations (SenBaCE)
 
 Analyze sensor activity from motor-impaired individuals to determine clinically relevant scores. Provide a quantitative evaluation of the impaired conditions, and to properly inform the rehabilitative process. 
 

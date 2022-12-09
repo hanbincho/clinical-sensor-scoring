@@ -47,11 +47,11 @@ def load_data(images_path, data_batch_size):
     """
     # if GPU is available, set it to curr_device
     if torch.cuda.is_available():
-        dev = "cuda:0"
+        DEV = "cuda:0"
     else:
-        dev = "cpu"
+        DEV = "cpu"
 
-    curr_device = torch.device(dev)
+    curr_device = torch.device(DEV)
 
     # Check that images_path is a str type
     if isinstance(images_path, str):

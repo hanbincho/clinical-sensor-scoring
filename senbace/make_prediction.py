@@ -65,8 +65,9 @@ def load_data(images_path, data_batch_size, scores_path=""):
 
     # Check that scores_path is a str type
     if isinstance(scores_path, str):
-        if not os.path.exists(scores_path):
-            raise Exception("The CSV file does not exist in the given directory")
+        if not scores_path == "":
+            if not os.path.exists(scores_path):
+                raise Exception("The CSV file does not exist in the given directory")
     else:
         raise TypeError("scores_path must be a string type!")
 

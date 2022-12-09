@@ -23,12 +23,13 @@ import torchvision
 
 # Import packages needed for data preprocessing
 from tensorflow.keras.utils import load_img
+import pandas as pd
 
 # Import packages needed for visualization and assessing performance
 import numpy as np
 
 # Definitions for necessary functions
-def load_data(images_path, data_batch_size):
+def load_data(images_path, data_batch_size, scores_path=""):
     """
     Access image data to create a dataloader for prediction
 
@@ -38,6 +39,8 @@ def load_data(images_path, data_batch_size):
         An existing directory that contains all the images for prediction
     data_batch_size : int
         A value representing the batch size when creating the data loader for the images
+    scores_path : str
+        An existing file that contains the score assigned.
 
     Returns
     ----------
@@ -60,13 +63,23 @@ def load_data(images_path, data_batch_size):
     else:
         raise TypeError("images_path must be a string type!")
 
-    # Establish transformations for each dataset
+    if isinstance(scores_path, str):
+        if not os.path.exists(scores_path):
+            raise Exception("The CSV file does not exist in the given directory")
+    else:
+        raise TypeError("scores_path must be a string type!")
 
+    # Establish transformations for each dataset
     data_transforms = torchvision.transforms.Compose([
         torchvision.transforms.ToTensor(),
         torchvision.transforms.Normalize(
         (0.5,), (0.5))
     ])
+
+    # If a user uploads a path with scores
+    if not scores_path == "":
+        # load the scores
+        scores_df = pd.read_csv(scores_path)
 
     # Load images for prediction
     data_img = []
@@ -76,9 +89,17 @@ def load_data(images_path, data_batch_size):
         img = load_img(img_path, target_size = (227, 227))
         img = data_transforms(img) # (3 x 227 x 227)
         data_img.append(img)
+        # add labels depending on whether we're training or not
+        if not scores_path == "":
+            # dissect the name of the image file to get the score
+            split_name = img_file.split('_')
+            subj_ID = int(split_name[0].replace('S', ''))
+            # append the score the list of labels
+            data_labels.append(scores_df.iloc[subj_ID-1, 1])
+        else:
+            data_labels.append(0)
 
     data_img = torch.stack(data_img, dim = 0)
-    data_labels = np.zeros(len(data_img))
 
     # Move all tensors to GPU if available
     data_img = data_img.to(curr_device)

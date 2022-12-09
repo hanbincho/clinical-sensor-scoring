@@ -41,7 +41,7 @@ def load_data(images_path, data_batch_size):
 
     Returns
     ----------
-    DataLoader
+    data_loader : DataLoader
         A dataloader that represents the dataset of images ready for prediction
 
     """

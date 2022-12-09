@@ -10,6 +10,6 @@ SenBaCE logo adopted from [Icon8](https://icons8.com/icons/set/Electromyograph).
 
 
 ~~~ ToDo
-
+ToDo
 Repository structure
 Installation and how to use

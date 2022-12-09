@@ -14,15 +14,7 @@ from torch import nn
 from .make_prediction import load_data
 from .alexnet_model import AlexNet
 
-# if GPU is available, set it to curr_device
-if torch.cuda.is_available():
-    DEV = "cuda:0"
-else:
-    DEV = "cpu"
-
-curr_device = torch.device(DEV)
-
-def train_data(num_epochs, learning_rate, data_batch_size, images_path):
+def train_data(num_epochs, learning_rate, data_batch_size, user_data_loader):
     """
 
     Parameters
@@ -33,7 +25,7 @@ def train_data(num_epochs, learning_rate, data_batch_size, images_path):
         DESCRIPTION.
     data_batch_size : TYPE
         DESCRIPTION.
-    images_path : TYPE
+    user_data_loader : TYPE
         DESCRIPTION.
 
     Returns
@@ -44,6 +36,14 @@ def train_data(num_epochs, learning_rate, data_batch_size, images_path):
         DESCRIPTION.
 
     """
+    # if GPU is available, set it to curr_device
+    if torch.cuda.is_available():
+        DEV = "cuda:0"
+    else:
+        DEV = "cpu"
+
+    curr_device = torch.device(DEV)
+
     # Set the seed value
     # Ensure reproducibility for each run
     seed = torch.initial_seed() % (2**32-1)
@@ -68,7 +68,7 @@ def train_data(num_epochs, learning_rate, data_batch_size, images_path):
         correct = 0
         total = 0
         running_loss = 0
-        for i, (images, labels) in enumerate(load_data(images_path, data_batch_size)):
+        for i, (images, labels) in enumerate(user_data_loader):
             model.train()
             train = (images.view(data_batch_size,3,227,227))
             # Clear gradients

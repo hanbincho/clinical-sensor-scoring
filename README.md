@@ -7,3 +7,9 @@ Analyze sensor activity from motor-impaired individuals to determine clinically 
 ##### Reference Paper - https://academic.oup.com/gigascience/article/10/6/giab043/6304920?login=false
 
 SenBaCE logo adopted from [Icon8](https://icons8.com/icons/set/Electromyograph).
+
+
+~~~ ToDo
+
+Repository structure
+Installation and how to use

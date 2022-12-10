@@ -2,9 +2,10 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import os
+import matplotlib.pyplot as plt
 from streamlit_extras.switch_page_button import switch_page
 from make_prediction import load_data
-from make_prediction import score_prediction
+# from senbace.train_model import train_data
 from alexnet_model import AlexNet
 from PIL import Image
 from io import BytesIO
@@ -15,27 +16,24 @@ if "visibility" not in st.session_state:
     st.session_state.visibility = "visible"
     st.session_state.disabled = False
 
-st.markdown("# Training and Predicting")
 st.sidebar.header("Training and Prediction")
 
-col1, col2 = st.columns([2, 1])
+st.markdown("# Upoad files")
 
-with col1:
-    # Uploading widgets for needed files
-    option = st.radio("Select an untrained model to train:", 
-    ('AlexNet', 'VGG', 'ResNet', 'Custom'))
+# Uploading widgets for needed files
+image_file = st.file_uploader("Choose an image file", accept_multiple_files = True)
+score_file = st.file_uploader("Choose a scores file", accept_multiple_files = False)
 
-    # Button to start prediction
-    train_pressed = st.button("Train")
+st.markdown("# Hyperparameters")
 
-with col2:
-    # Text input box for feedback
-    text_out = st.text_area("Feedback: ", "Temporary text for now...")
-    prev = st.button("previous page")
-    if prev:
-        switch_page("display prediction")
-if option == 'AlexNet':
-    st.write('You chose AlexNet')
+# Text boxes for hyperparameters
+user_batch_size = st.text_input("Batch Size", 1)
+
+# Remaining text boxes for hyperparameters
+user_num_epochs = st.text_input("Epochs", 1)
+user_lr = st.text_input("Learning Rate", 1e-5)
+
+if image_file is not None:
     # Check that download directory for image exists
     download_image_path = os.getcwd()+"/senbace/data/"
     if not os.path.exists(download_image_path):
@@ -49,30 +47,45 @@ if option == 'AlexNet':
         img_to_save = Image.open(image_file[i])
         img_to_save.save(download_image_path+image_file[i].name)
 
-if model_file is not None:
-    st.write("Loaded: ", model_file.name)
-    # Check that download directory for model exists
-    download_model_path = os.getcwd()+"/senbace/model/"
-    if not os.path.exists(download_model_path):
+if score_file is not None:
+    # Check that download directory for scores file exists
+    download_score_path = os.getcwd()+"/senbace/scores/"
+    if not os.path.exists(download_score_path):
         # If not, make it
-        os.makedirs(download_model_path)
-    # Then save the model file
-    model_data = model_file.getvalue()
-    model_to_save = open(download_model_path+model_file.name, "wb")
-    model_to_save.write(model_data)
-    model_to_save.close()
-    
+        os.makedirs(download_score_path)
 
-# Perform prediction with pretrained model on uploaded image
-if predict_pressed:
-    data_loader = load_data(download_image_path, int(user_batch_size))
-    pred_score = score_prediction(data_loader, download_model_path+model_file.name)
-    # Iterate through all images and print out the corresponding score
-    for i in range(len(image_file)):
-        st.write("Result for "+ image_file[i].name + ": " + str(pred_score[i]))
-        # Delete the downloaded image files
-        if os.path.exists(download_image_path+image_file[i].name):
-            os.remove(download_image_path+image_file[i].name)
-    # Also delete the downloaded model file
-        if os.path.exists(download_model_path+model_file.name):
-            os.remove(download_model_path+model_file.name)
+    st.write("Loaded: ", score_file.name)
+    # Then save the scores file
+    scores_data = pd.read_csv(score_file)
+    scores_data.to_csv(download_score_path+score_file.name)
+
+# Button to start prediction
+train_pressed = st.button("Train Model")
+    
+# When user presses button, create dataloader and start training
+if train_pressed:
+    training_dataloader = load_data(download_image_path, int(user_batch_size), \
+        download_score_path+score_file.name)
+
+
+    st.write("Data loader was created!")
+
+    # Facing some kind of import issue here...
+    # train_acc, train_loss = train_data(10, 1e-5, 1, training_dataloader)
+    # st.write("Model was trained!")
+
+    # Show plots of training and accuracy curves
+    fig, ax = plt.subplots()
+    ax[0].plot(range(1, len(train_acc)+1), train_acc)
+    ax[0].set_title('Training Accuracy vs Epoch')
+    ax[0].set_xlabel('Epochs')
+    ax[0].set_ylabel('Training Accuracy (%)')
+    ax[1].plot(range(1, len(train_loss)+1), train_loss)
+    ax[1].set_title('Training Loss vs Epoch')
+    ax[1].set_xlabel('Epochs')
+    ax[1].set_ylabel('Training Loss')
+
+    st.pyplot(fig)
+
+st.markdown("# Export Trained Model")
+

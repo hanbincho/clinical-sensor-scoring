@@ -14,7 +14,6 @@ st.write(__name__)
 
 from prediction_and_training import make_prediction
 from prediction_and_training import train_model
-from prediction_and_training import alexnet_model 
 from PIL import Image
 from io import BytesIO
 

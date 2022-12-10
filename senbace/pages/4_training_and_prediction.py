@@ -42,7 +42,7 @@ user_lr = st.text_input("Learning Rate", 1e-5)
 
 if image_file is not None:
     # Check that download directory for image exists
-    download_image_path = os.getcwd()+"/uploadedData/"
+    download_image_path = os.getcwd()+"/uploadedData/images/"
     if not os.path.exists(download_image_path):
         # If not, make it
         os.makedirs(download_image_path)
@@ -57,7 +57,7 @@ if image_file is not None:
 
 if score_file is not None:
     # Check that download directory for scores file exists
-    download_score_path = os.getcwd()+"/senbace/scores/"
+    download_score_path = os.getcwd()+"/uploadedData/scores/"
     if not os.path.exists(download_score_path):
         # If not, make it
         os.makedirs(download_score_path)
@@ -88,8 +88,7 @@ if train_pressed:
     # Show plots of training and accuracy curves
     fig, ax = plt.subplots(2, 1)
     ax[0].plot(range(1, len(train_acc)+1), train_acc)
-    ax[0].set_title('Training Accuracy vs Epoch')
-    ax[0].set_xlabel('Epochs')
+    ax[0].set_title('Training Results')
     ax[0].set_ylabel('Training Accuracy (%)')
     ax[1].plot(range(1, len(train_loss)+1), train_loss)
     ax[1].set_title('Training Loss vs Epoch')

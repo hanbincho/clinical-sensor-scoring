@@ -11,7 +11,10 @@ This file can be imported and contains the following functions:
 import torch
 import numpy as np
 from torch import nn
+import os
+os.sys.path.append('../')
 from .alexnet_model import AlexNet
+# import alexnet_model  
 
 def train_data(num_epochs, learning_rate, data_batch_size, user_data_loader):
     """

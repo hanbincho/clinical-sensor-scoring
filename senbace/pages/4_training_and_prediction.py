@@ -4,14 +4,21 @@ import numpy as np
 import os
 import matplotlib.pyplot as plt
 from streamlit_extras.switch_page_button import switch_page
-from make_prediction import load_data
-from train_model import train_data
-from alexnet_model import AlexNet
+# from make_prediction import load_data
+# from train_model import train_data
+# from alexnet_model import AlexNet
+
+st.write(os.getcwd())
+st.write(__name__)
+
+from prediction_and_training import make_prediction
+from prediction_and_training import train_model
+from prediction_and_training import alexnet_model 
 from PIL import Image
 from io import BytesIO
 
 
-st.set_page_config(page_title="Training a Model and Performing Predictions")
+# st.set_page_config(page_title="Training a Model and Performing Predictions")
 if "visibility" not in st.session_state:
     st.session_state.visibility = "visible"
     st.session_state.disabled = False
@@ -67,7 +74,7 @@ train_pressed = st.button("Train Model")
     
 # When user presses button, create dataloader and start training
 if train_pressed:
-    training_dataloader, len_data, len_labels = load_data(download_image_path, int(user_batch_size), \
+    training_dataloader, len_data, len_labels = make_prediction.load_data(download_image_path, int(user_batch_size), \
         download_score_path+score_file.name)
 
 
@@ -75,7 +82,7 @@ if train_pressed:
     st.write(len_data)
     st.write(len_labels)
     # Facing some kind of import issue here...
-    train_acc, train_loss = train_data(int(user_num_epochs), float(user_lr), int(user_batch_size), training_dataloader)
+    train_acc, train_loss = train_model.train_data(int(user_num_epochs), float(user_lr), int(user_batch_size), training_dataloader)
     st.write("Model was trained!")
 
     # Show plots of training and accuracy curves

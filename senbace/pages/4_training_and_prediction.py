@@ -74,13 +74,12 @@ train_pressed = st.button("Train Model")
     
 # When user presses button, create dataloader and start training
 if train_pressed:
-    training_dataloader, len_data, len_labels = make_prediction.load_data(download_image_path, int(user_batch_size), \
+    training_dataloader = make_prediction.load_data(download_image_path, int(user_batch_size), \
         download_score_path+score_file.name)
 
 
     st.write("Data loader was created!")
-    st.write(len_data)
-    st.write(len_labels)
+
     # Facing some kind of import issue here...
     train_acc, train_loss = train_model.train_data(int(user_num_epochs), float(user_lr), int(user_batch_size), training_dataloader)
     st.write("Model was trained!")

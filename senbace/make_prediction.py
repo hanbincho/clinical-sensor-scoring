@@ -128,7 +128,7 @@ def load_data(images_path, data_batch_size, scores_path=""):
     data_loader = torch.utils.data.DataLoader(data_for_prediction, \
         batch_size = data_batch_size, shuffle = True)
 
-    return data_loader
+    return data_loader, len(data_img), len(data_labels)
 
 def score_prediction(test_loader, model):
     """

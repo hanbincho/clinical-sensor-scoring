@@ -5,7 +5,7 @@ import os
 import matplotlib.pyplot as plt
 from streamlit_extras.switch_page_button import switch_page
 from make_prediction import load_data
-# from senbace.train_model import train_data
+from train_model import train_data
 from alexnet_model import AlexNet
 from PIL import Image
 from io import BytesIO
@@ -39,6 +39,7 @@ if image_file is not None:
     if not os.path.exists(download_image_path):
         # If not, make it
         os.makedirs(download_image_path)
+    st.write(download_image_path)
 
     st.write("Loaded: ")
     for i in range(len(image_file)):
@@ -53,29 +54,32 @@ if score_file is not None:
     if not os.path.exists(download_score_path):
         # If not, make it
         os.makedirs(download_score_path)
+    st.write(download_score_path)
 
     st.write("Loaded: ", score_file.name)
     # Then save the scores file
     scores_data = pd.read_csv(score_file)
     scores_data.to_csv(download_score_path+score_file.name)
+    st.write(scores_data)
 
 # Button to start prediction
 train_pressed = st.button("Train Model")
     
 # When user presses button, create dataloader and start training
 if train_pressed:
-    training_dataloader = load_data(download_image_path, int(user_batch_size), \
+    training_dataloader, len_data, len_labels = load_data(download_image_path, int(user_batch_size), \
         download_score_path+score_file.name)
 
 
     st.write("Data loader was created!")
-
+    st.write(len_data)
+    st.write(len_labels)
     # Facing some kind of import issue here...
-    # train_acc, train_loss = train_data(10, 1e-5, 1, training_dataloader)
-    # st.write("Model was trained!")
+    train_acc, train_loss = train_data(int(user_num_epochs), float(user_lr), int(user_batch_size), training_dataloader)
+    st.write("Model was trained!")
 
     # Show plots of training and accuracy curves
-    fig, ax = plt.subplots()
+    fig, ax = plt.subplots(2, 1)
     ax[0].plot(range(1, len(train_acc)+1), train_acc)
     ax[0].set_title('Training Accuracy vs Epoch')
     ax[0].set_xlabel('Epochs')
@@ -88,4 +92,5 @@ if train_pressed:
     st.pyplot(fig)
 
 st.markdown("# Export Trained Model")
+# Upon exporting, also delete the downloaded files/directory 
 

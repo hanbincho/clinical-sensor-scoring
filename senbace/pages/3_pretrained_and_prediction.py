@@ -79,4 +79,4 @@ if predict_pressed:
             os.remove(download_model_path+model_file.name)
 prev = st.button("previous page")
 if prev:
-    switch_page("display prediction")
+    switch_page("show training plot")

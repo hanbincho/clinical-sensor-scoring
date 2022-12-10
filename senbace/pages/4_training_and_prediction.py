@@ -92,5 +92,9 @@ if train_pressed:
     st.pyplot(fig)
 
 st.markdown("# Export Trained Model")
-# Upon exporting, also delete the downloaded files/directory 
+# Upon exporting, also delete the downloaded files/directory
+
+prev = st.button("previous page")
+if prev:
+    switch_page("show training plot")
 

@@ -81,7 +81,7 @@ with col1:
 
     upload_csv = st.file_uploader("Choose a file", key='1')
     if upload_csv:
-        process_data.generate_plot(upload_csv)
+        process_data.generate_plots(upload_csv)
     model_option = st.selectbox(
         "Select Model",
         ('Model 1', 'Model 2', 'Upload a model'),

@@ -2,7 +2,7 @@ name: senbace
 channels:
   - defaults
 dependencies:
-  - keras=2.11.0
+  - keras=2.10.0
   - keras-preprocessing
   - matplotlib
   - numpy

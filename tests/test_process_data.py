@@ -6,7 +6,7 @@ import os
 class TestGeneratePlots(unittest.TestCase):
 
 
-    def test_smoke1():
+    def test_smoke1(self):
         """
         Checks if `process_data` module runs without no problems.
 
@@ -14,7 +14,7 @@ class TestGeneratePlots(unittest.TestCase):
         """
         process_data.generate_plots(os.getcwd() + '/tests/random_test_signals/smoke_test_signal1.csv')
 
-    def test_smoke2():
+    def test_smoke2(self):
         """
         This checks if `process_data` module runs without no problems.
 

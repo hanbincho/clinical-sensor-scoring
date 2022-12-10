@@ -4,9 +4,9 @@ import numpy as np
 import torch
 import os
 import tensorflow
-from senbace import load_data
-from senbace import train_data
-from senbace import AlexNet
+from senbace.make_prediction import load_data
+from senbace.train_model import train_data
+from senbace.alexnet_model import AlexNet
 #from src.Model.make_prediction import score_prediction
 
 class TestMakePrediction(unittest.TestCase):
@@ -50,13 +50,13 @@ class TestMakePrediction(unittest.TestCase):
     #     predict = score_prediction(load, model)
     #     np.testing.assert_almost_equal(type(predict), int) 
         
-    def test_train_model():
+    def test_train_model(self):
         """
         Smoke Test for train model
         """
-        train_data(num_epochs=10, 
-                       learning_rate=.001, 
-                       data_batch_size=1)
+        smoke_data_loader = load_data(os.getcwd()+"/tests/test_images/", 1)
+        train_data(num_epochs=10, learning_rate=.001, data_batch_size=1,
+            user_data_loader = smoke_data_loader)
         return
         
 

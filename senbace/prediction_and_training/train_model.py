@@ -38,6 +38,14 @@ def train_data(num_epochs, learning_rate, data_batch_size, user_data_loader):
         DESCRIPTION.
 
     """
+    if (num_epochs <= 0): #
+        raise ValueError("Speicfy epochs greater than 0")
+    # # checking for learning rate
+    elif (learning_rate <= 0): 
+        raise ValueError("Speicfy learning rate greater than 0")
+    elif (data_batch_size <= 0):
+        raise ValueError("Specify batch size greater than 0, cannot take negative value")
+
     # if GPU is available, set it to curr_device
     if torch.cuda.is_available():
         DEV = "cuda:0"

@@ -60,17 +60,11 @@ with col1:
     )
     if patient_input:
         st.write("You entered: ", patient_input)
-    loca_option = st.selectbox(
-        "Specify Location",
-        ("Location 1", "Location 2", "Location 3", "Upload a CSV file"),
-    )
+        upload_model = st.file_uploader("Choose a file")
     model_option = st.selectbox(
         "Select Model",
         ('Model 1', 'Model 2', 'Upload a model'),
     )
-    if model_option == 'Upload a model':
-        upload_model = st.file_uploader("Choose a file")
-
     if loca_option == 'Upload a CSV file':
         upload_csv = st.file_uploader("Choose a file")
         if upload_csv:

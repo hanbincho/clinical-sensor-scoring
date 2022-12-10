@@ -9,8 +9,8 @@ from streamlit_extras.switch_page_button import switch_page
 # from train_model import train_data
 # from alexnet_model import AlexNet
 
-st.write(os.getcwd())
-st.write(__name__)
+# st.write(os.getcwd())
+# st.write(__name__)
 
 from prediction_and_training import make_prediction
 from prediction_and_training import train_model
@@ -42,7 +42,7 @@ user_lr = st.text_input("Learning Rate", 1e-5)
 
 if image_file is not None:
     # Check that download directory for image exists
-    download_image_path = os.getcwd()+"/senbace/data/"
+    download_image_path = os.getcwd()+"/uploadedData/"
     if not os.path.exists(download_image_path):
         # If not, make it
         os.makedirs(download_image_path)

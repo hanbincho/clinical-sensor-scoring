@@ -100,6 +100,6 @@ with col1:
     #      with col2:
     #         st.write("Plots will be here")
 
-next = st.button("Next")
+next = st.button("Next Page")
 if next:
     switch_page("show_training_plot")

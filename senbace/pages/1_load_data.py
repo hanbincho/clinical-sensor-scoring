@@ -7,11 +7,6 @@ import io
 import os
 import re
 import matplotlib.pyplot as plt
-import sys
-
-sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'src/data_processing'))
-
-import process_data
 
 
 # Import required packages
@@ -40,8 +35,6 @@ def plot(file):
 
     sensor_data = pd.read_csv(file, header=0)
 
-    # Check if provided file/path exists
-
     # Verify if the column names in CSV file conform to required format
     col_regex = re.compile(r'[A-Za-z]{3}-[XYZxyz]')
     dataframe_col_name_check = [col_regex.match(col_name) for col_name in sensor_data.columns]
@@ -55,11 +48,9 @@ def plot(file):
             plt.plot(sensor_data[col], 'r')
             plt.xlim(0.0)
             plt.axis('off')
-            # plt.savefig(upload_csv.split('.')[0] + '-' + col + '.png', dpi=600)
-            # plt.close()
+            plt.savefig('./generated_plots_for_prediction/' + file.name.split('.')[0] + '-' + col + '.png', dpi=600)
+            plt.close()
             st.write(fig)
-            plt.savefig('image')
-
 
 st.set_page_config(page_title="Load Data")
 if "visibility" not in st.session_state:
@@ -81,7 +72,7 @@ with col1:
 
     upload_csv = st.file_uploader("Choose a file", key='1')
     if upload_csv:
-        process_data.generate_plots(upload_csv)
+        plot(upload_csv)
     model_option = st.selectbox(
         "Select Model",
         ('Model 1', 'Model 2', 'Upload a model'),

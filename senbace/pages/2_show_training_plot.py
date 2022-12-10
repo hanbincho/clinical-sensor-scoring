@@ -15,7 +15,7 @@ if "visibility" not in st.session_state:
 st.markdown("# Plot")
 st.sidebar.header("Load Plot")
 col1, col2 = st.columns([4, 4])
-prediction_page = st.radio('choose a prediction page', ('pretrained and prediction', 'training and prediction'))
+prediction_page = st.radio('Choose a prediction page', ('pretrained and prediction', 'training and prediction'))
 prev = st.button("Previous Page")
 next = st.button("Next Page")
 if prev:

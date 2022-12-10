@@ -9,18 +9,11 @@ st.set_page_config(
 )
 
 st.title('Sensor Based Clinical Evaluations (SenBaCE)')
-st.caption('By: Dell Teng, HAnbin Cho,  Prathiba Ramachandran, SangYoon Back, Uzo Uwaoma')
+st.caption('By: Dell Teng, Hanbin Cho,  Prathiba Ramachandran, SangYoon Back, Uzo Uwaoma')
 
-st.markdown(""" **Project Goal**: Currently, there are standard clinical practices where trained physicians visually assess motor 
-    impairments of patients. Based off these visual assessments, these physicians assign  
-    scores which describes the severity of patients' impairments. To minimize possible biases or
-    inconsistencies between assessments, sensor data can be utilized as a more robust and consistent
-    means to characterize motor behaviors. However, the outputs of sensor data are not clinically meaningful
-    and somewhat difficult to understand without additional filtering and processing.
-    By utilizing a publicly available dataset that has collected sensor data and the corresponding clinical
-    evaluation scores (U-Limb), and machine learning model techniques, SenBaCE aims to bridge this gap and
-    demonstrate a potentially more robust alternative to clinically characterizing motor impairments""")
-
+st.markdown(""" **Project Goal**: To minimize inconsistensies and bias in clinician-assigned
+    scores based of data from EMG & kinematic sensors for assessing motor skills/impairments of patients.
+    """)
 
 st.sidebar.success("Select a page above.")
 

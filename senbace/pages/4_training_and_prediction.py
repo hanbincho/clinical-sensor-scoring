@@ -4,6 +4,7 @@ import numpy as np
 import os
 import matplotlib.pyplot as plt
 from streamlit_extras.switch_page_button import switch_page
+
 # from make_prediction import load_data
 # from train_model import train_data
 # from alexnet_model import AlexNet

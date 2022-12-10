@@ -78,15 +78,18 @@ with col1:
     )
     if patient_input:
         st.write("You entered: ", patient_input)
-        upload_model = st.file_uploader("Choose a file")
+
+    upload_csv = st.file_uploader("Choose a file", key='1')
+    if upload_csv:
+        process_data.generate_plot(upload_csv)
     model_option = st.selectbox(
         "Select Model",
         ('Model 1', 'Model 2', 'Upload a model'),
     )
-    if loca_option == 'Upload a CSV file':
-        upload_csv = st.file_uploader("Choose a file")
-        if upload_csv:
-            process_data.generate_plot(upload_csv)
+
+    if model_option == 'Upload a model':
+        upload_model = st.file_uploader("Choose a file", key='2')
+
 
         # if os.path.exists(file) != True:
         # raise FileNotFoundError("Provided file does not exist.")

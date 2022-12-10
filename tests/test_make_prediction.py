@@ -5,6 +5,7 @@ import torch
 import os
 import tensorflow
 from senbace.make_prediction import load_data
+from senbace.make_prediction import score_prediction
 from senbace.train_model import train_data
 from senbace.alexnet_model import AlexNet
 #from src.Model.make_prediction import score_prediction
@@ -38,17 +39,6 @@ class TestMakePrediction(unittest.TestCase):
         path_val = os.getcwd()+"/tests/test_images/"
         load_data(path_val, batch_size_val)
         return
-    
-    # def test_predict_type(self):
-    #     """
-    #     Smoke test to see if score_prediction function can run
-    #     """
-    #     batch_size_val = 1
-    #     path_val = os.getcwd()+"/clinical-sensor-scoring/WRA/"
-    #     # model = forward() # model should be a path to a .pth file type
-    #     load = load_data(path_val, batch_size_val)
-    #     predict = score_prediction(load, model)
-    #     np.testing.assert_almost_equal(type(predict), int) 
         
     def test_train_model(self):
         """

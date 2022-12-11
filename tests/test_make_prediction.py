@@ -51,5 +51,3 @@ class TestMakePrediction(unittest.TestCase):
         train_model.train_data(num_epochs=10, learning_rate=.001, data_batch_size=1,
             user_data_loader = smoke_data_loader)
         return
-        
-

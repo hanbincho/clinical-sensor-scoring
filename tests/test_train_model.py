@@ -28,8 +28,8 @@ class TestTrainModel(unittest.TestCase):
         num_epochs = 10
         learning_rate = 0.0001
         data_batch_size = -19.00
-        smoke_data_loader = make_prediction.load_data(os.getcwd()+"/tests/test_images/", data_batch_size)
-        with self.assertRaises(ValueError):
+        with self.assertRaises(TypeError):
+            smoke_data_loader = make_prediction.load_data(os.getcwd()+"/tests/test_images/", data_batch_size)
             train_model.train_data(num_epochs, learning_rate,data_batch_size,smoke_data_loader)
         return
     

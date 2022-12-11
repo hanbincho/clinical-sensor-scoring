@@ -11,8 +11,8 @@ class TestTrainModel(unittest.TestCase):
         """Smoke test: making sure model runs when all 3 parameters are given"""
         num_epochs = 10
         learning_rate = 0.0001
-        data_batch_size = 32
-        smoke_data_loader = make_prediction.load_data(os.getcwd()+"/tests/test_images/", 1)
+        data_batch_size = 3
+        smoke_data_loader = make_prediction.load_data(os.getcwd()+"/tests/test_images/", data_batch_size)
         accuracy_list, loss_list = train_model.train_data(num_epochs, learning_rate,data_batch_size,smoke_data_loader)
         self.assertIsNotNone(accuracy_list)
         self.assertIsInstance(accuracy_list, list)
@@ -26,7 +26,7 @@ class TestTrainModel(unittest.TestCase):
         num_epochs = 10
         learning_rate = 0.0001
         data_batch_size = -19.00
-        smoke_data_loader = make_prediction.load_data(os.getcwd()+"/tests/test_images/", 1)
+        smoke_data_loader = make_prediction.load_data(os.getcwd()+"/tests/test_images/", data_batch_size)
         with self.assertRaises(ValueError):
             train_model.train_data(num_epochs, learning_rate,data_batch_size,smoke_data_loader)
         return
@@ -37,8 +37,8 @@ class TestTrainModel(unittest.TestCase):
         """
         num_epochs = 0
         learning_rate = 0.0001
-        data_batch_size = 19
-        smoke_data_loader = make_prediction.load_data(os.getcwd()+"/tests/test_images/", 1)
+        data_batch_size = 3
+        smoke_data_loader = make_prediction.load_data(os.getcwd()+"/tests/test_images/", data_batch_size)
         with self.assertRaises(ValueError):
             train_model.train_data(num_epochs, learning_rate,data_batch_size,smoke_data_loader)
         return
@@ -49,8 +49,8 @@ class TestTrainModel(unittest.TestCase):
         """
         num_epochs = 10
         learning_rate = -0.0001
-        data_batch_size = 19
-        smoke_data_loader = make_prediction.load_data(os.getcwd()+"/tests/test_images/", 1)
+        data_batch_size = 3
+        smoke_data_loader = make_prediction.load_data(os.getcwd()+"/tests/test_images/", data_batch_size)
         with self.assertRaises(ValueError):
             train_model.train_data(num_epochs, learning_rate,data_batch_size,smoke_data_loader)
         return

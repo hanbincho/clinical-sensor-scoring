@@ -17,11 +17,13 @@ Currently, there are standard clinical practices where trained physicians visual
 
 ### Installation and how to use
 * Open a terminal.
-* Clone the repoistory using `git clone https://github.com/hanbincho/clinical-sensor-scoring.git`
-* Set up a new virtual environment with all necessary packages and their dependencies using `conda env create -f environment.yml`
-* Activate the virtual environment with `conda activate env`.
-* Deactivate the virtual environment using `conda deactivate`.
+* Clone the repoistory using `git clone https://github.com/hanbincho/clinical-sensor-scoring.git`.
+* cd into the repository `cd clinical-sensor-scoring`.
+* Set up a new virtual environment with all necessary packages and their dependencies using `conda env create -f environment.yml`.
+* Activate the virtual environment with `conda activate senbace`.
+* cd into senbace package in the terminal via `cd senbace`
+* In the terminal run `Streamlit run main.py --server.maxUploadSize 400`
 
-## Nothing should be below this line.
+---
 SenBaCE logo adopted from [Icon8](https://icons8.com/icons/set/Electromyograph).
 

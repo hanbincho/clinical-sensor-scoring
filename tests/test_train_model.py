@@ -1,9 +1,11 @@
 #Import packages
 import unittest
 import os
+# from senbace.make_prediction import load_data
+# from senbace.train_model import train_data
+
 from senbace.prediction_and_training import make_prediction 
 from senbace.prediction_and_training import train_model 
-
 
 class TestTrainModel(unittest.TestCase):
  

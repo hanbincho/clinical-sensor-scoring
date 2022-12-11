@@ -84,6 +84,11 @@ if train_pressed:
     train_acc, train_loss = train_model.train_data(int(user_num_epochs), float(user_lr), int(user_batch_size), training_dataloader)
     st.write("Model was trained!")
 
+st.markdown("# Export Trained Model")
+
+prev = st.button("Show Training")
+if prev:
+    # switch_page("show training plot")
     # Show plots of training and accuracy curves
     fig, ax = plt.subplots(2, 1)
     ax[0].plot(range(1, len(train_acc)+1), train_acc)
@@ -95,11 +100,13 @@ if train_pressed:
     ax[1].set_ylabel('Training Loss')
 
     st.pyplot(fig)
-
-st.markdown("# Export Trained Model")
-# Upon exporting, also delete the downloaded files/directory
-
-prev = st.button("previous page")
-if prev:
-    switch_page("show training plot")
+    
+    # Also delete the downloaded files/directory
+    for i in range(len(image_file)):
+        # Delete the downloaded image files
+        if os.path.exists(download_image_path+image_file[i].name):
+            os.remove(download_image_path+image_file[i].name)
+    # Also delete the downloaded model file
+        if os.path.exists(download_score_path+score_file.name):
+            os.remove(download_score_path+score_file.name)
 

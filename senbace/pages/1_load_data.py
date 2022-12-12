@@ -54,7 +54,7 @@ def plot(file):
         plt.plot(sensor_data[col], 'r')
         plt.xlim(0.0)
         plt.axis('off')
-        plt.savefig('./generated_plots_for_prediction/' + file.name.split('.')[0] + '-' + col + '.png', dpi=600)
+        plt.savefig(os.getcwd() + '/generated_plots_for_prediction/' + file.name.split('.')[0] + '-' + col + '.png', dpi=600)
         plt.close()
         st.write(fig)
 

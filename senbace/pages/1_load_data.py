@@ -94,7 +94,7 @@ with col2:
     if predict_pressed:
         st.write('Default training model will be used to predict score.')
 
-        file_path = os.getcwd() + 'senbace/generated_plots_for_prediction/'
+        file_path = os.getcwd() + '/senbace/generated_plots_for_prediction/'
         files = os.listdir(file_path)
         data_loader = make_prediction.load_data(file_path, 1)
         model_path = '../tests/test_model/alex_net_changed_classes_170eps.pth'

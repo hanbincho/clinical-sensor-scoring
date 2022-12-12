@@ -130,3 +130,6 @@ dmypy.json
 
 # Uploaded user data
 /uploadedData
+
+# Training model
+/test_model

@@ -65,7 +65,7 @@ if "visibility" not in st.session_state:
 
 st.markdown("# Load Data")
 st.sidebar.header("Load Data")
-col1, col2 = st.columns([3, 4])
+col1, col2 = st.columns(2)
 
 with col1:
     patient_input = st.text_input(
@@ -99,7 +99,7 @@ with col2:
         # st.write(pred_score)
 
         for ii in range(len(pred_score)):
-            displayed_text = 'Predicted score for {}: {}'.format(files[ii], pred_score[ii])
+            displayed_text = 'Predicted score for {}: {}'.format(files[ii].split('.')[0], pred_score[ii])
             st.write(displayed_text) 
 
             if patient_input:
@@ -108,12 +108,16 @@ with col2:
                 f.close()
 
             else:
-                with open('patient_predicted_scores.txt', 'a') as f:
+                with open(patient_input + '_patient_predicted_scores.txt', 'a') as f:
                     f.write((displayed_text) + '\n')
                 f.close()
 
-  
-text_out = st.text_area("Feedback: ", "Temporary text for now...")
+text_out = st.text_area("Feedback: " )
+
+
+# with open(patient_input + '_patient_predicted_scores.txt', 'a') as f:
+#     f.write((text_out) + '\n')
+#     f.close()
  
         
 

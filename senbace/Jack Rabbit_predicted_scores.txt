@@ -1,0 +1,6 @@
+Predicted score for 01_1_3-WRA-Y.png: [14]
+Predicted score for 01_1_3-WRA-X.png: [19]
+Predicted score for 01_1_3-WRA-Y.1.png: [18]
+Predicted score for 01_1_3-WRA-Y.png: [14]
+Predicted score for 01_1_3-WRA-X.png: [18]
+Predicted score for 01_1_3-WRA-Y.1.png: [19]

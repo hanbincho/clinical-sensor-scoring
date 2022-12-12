@@ -84,13 +84,9 @@ if train_pressed:
     train_acc, train_loss = train_model.train_data(int(user_num_epochs), float(user_lr), int(user_batch_size), training_dataloader)
     st.write("Model was trained!")
 
-st.markdown("# Export Trained Model")
+    st.markdown("# Export Trained Model")
 
-prev = st.button("Show Training")
-if prev:
-    # switch_page("show training plot")
-    # Show plots of training and accuracy curves
-    fig, ax = plt.subplots(2, 1)
+    fig, ax = plt.subplots(2, 1, constrained_layout=True)
     ax[0].plot(range(1, len(train_acc)+1), train_acc)
     ax[0].set_title('Training Results')
     ax[0].set_ylabel('Training Accuracy (%)')
@@ -109,4 +105,5 @@ if prev:
     # Also delete the downloaded model file
         if os.path.exists(download_score_path+score_file.name):
             os.remove(download_score_path+score_file.name)
+
 

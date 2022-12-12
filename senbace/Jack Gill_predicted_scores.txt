@@ -1,3 +1,0 @@
-Predicted score for 01_1_3-WRA-Y: [19]
-Predicted score for 01_1_3-WRA-X: [18]
-Predicted score for 01_1_3-WRA-Y: [14]

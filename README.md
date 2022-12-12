@@ -1,6 +1,8 @@
 # <img src= "doc/electromyography.png" height="60"></img> Sensor Based Clinical Evaluations (SenBaCE)
 ---
 [![Python Package using Conda](https://github.com/hanbincho/clinical-sensor-scoring/actions/workflows/python-package-conda.yml/badge.svg)](https://github.com/hanbincho/clinical-sensor-scoring/actions/workflows/python-package-conda.yml)
+[![Coverage Badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/hanbincho/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/raw/clinical-sensor-scoring__heads_main.json)]
+
 
 ## ToDo Repository structure
 * Use tree to generate this in the command line, screenshot, then attach image here. 
@@ -49,7 +51,14 @@ Currently, there are standard clinical practices where trained physicians visual
 * Instructions on how to use the code
 * Examples --> how to work with package **
 
-Senbace_dashboard:: 
+
+1. senbace: 
+2. tests : 
+3. doc :
+4. doc -> software_design.md: project information such as Users and Component Design
+6. environment.yml : virtual environment libraries
+
+Senbace_dashboard::  
 
 
 ---------------------------------------

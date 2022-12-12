@@ -3,12 +3,6 @@
 [![Python Package using Conda](https://github.com/hanbincho/clinical-sensor-scoring/actions/workflows/python-package-conda.yml/badge.svg)](https://github.com/hanbincho/clinical-sensor-scoring/actions/workflows/python-package-conda.yml)
 [![Coverage Badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/hanbincho/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/raw/clinical-sensor-scoring__heads_main.json)]
 
-
-## ToDo Repository structure
-* Use tree to generate this in the command line, screenshot, then attach image here. 
-
----------------------------------------
-
 ## Introduction
 **SenBaCE** is a tool that aims to assign clinically relevant scores based off of plots created from sensor data collected during motor tasks from individuals with motor impairments.We inted to provide a quantitative evaluation of the impaired conditions, and to help the clinicians properly decide the rehabilitative process. This tool can be used for score prediction based off the [U-Limb](https://academic.oup.com/gigascience/article/10/6/giab043/6304920) dataset and training with custom data.  
 
@@ -45,6 +39,11 @@ Currently, there are standard clinical practices where trained physicians visual
 
 ---------------------------------------
 
+## ToDo Repository structure
+* Use tree to generate this in the command line, screenshot, then attach image here. 
+
+---------------------------------------
+
 ### File Descriptions:
 * What it does
 * sortware dependencies
@@ -54,9 +53,8 @@ Currently, there are standard clinical practices where trained physicians visual
 
 1. senbace: 
 2. tests : 
-3. doc :
-4. doc -> software_design.md: project information such as Users and Component Design
-6. environment.yml : virtual environment libraries
+3. doc -> software_design.md: project information such as Users and Component Design
+4. environment.yml : virtual environment libraries
 
 Senbace_dashboard::  
 

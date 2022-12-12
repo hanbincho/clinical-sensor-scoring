@@ -51,6 +51,16 @@ Currently, there are standard clinical practices where trained physicians visual
 * Instructions on how to use the code
 * Examples --> how to work with package **
 
+
+1. senbace: 
+2. tests : 
+3. doc :
+4. doc -> software_design.md: project information such as Users and Component Design
+6. environment.yml : virtual environment libraries
+
+Senbace_dashboard::  
+
+
 ---------------------------------------
 
 

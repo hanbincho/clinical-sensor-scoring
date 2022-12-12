@@ -3,13 +3,12 @@
 [![Python Package using Conda](https://github.com/hanbincho/clinical-sensor-scoring/actions/workflows/python-package-conda.yml/badge.svg)](https://github.com/hanbincho/clinical-sensor-scoring/actions/workflows/python-package-conda.yml)
 
 
-## ToDo
-Repository structure
+## ToDo Repository structure
 * Use tree to generate this in the command line, screenshot, then attach image here. 
 
 ---------------------------------------
 
-### Introduction
+## Introduction
 **SenBaCE** is a tool that aims to assign clinically relevant scores based off of plots created from sensor data collected during motor tasks from individuals with motor impairments.We inted to provide a quantitative evaluation of the impaired conditions, and to help the clinicians properly decide the rehabilitative process. This tool can be used for score prediction based off the [U-Limb](https://academic.oup.com/gigascience/article/10/6/giab043/6304920) dataset and training with custom data.  
 
 **Dataset** U-Limb is a large, multimodal, multi-center dataset on human upper-limb movements. The kinematic data consists the position data of thorax, upper-and forearm markers. We are currently using the markers for thumb and little finger side
@@ -35,6 +34,20 @@ Currently, there are standard clinical practices where trained physicians visual
 
 ** Deploying on Streamlit** 
 
----
+--------------------------------------- 
+
+### Running Tests
+
+* Test files exist for the functions and submodules used in this project. 
+* Tests are automatically run when pushed to GitHub using github workflows. 
+* To run unittests locally, clone the repository and at the root run `python -m unittest`.
+
+---------------------------------------
+
+### File Descriptions:
+
+---------------------------------------
+
+
 SenBaCE logo adopted from [Icon8](https://icons8.com/icons/set/Electromyograph).
 

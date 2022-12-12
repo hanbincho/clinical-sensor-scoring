@@ -7,7 +7,7 @@
 **SenBaCE** is a tool that aims to assign clinically relevant scores based off of plots created from sensor data collected during motor tasks from individuals with motor impairments.We inted to provide a quantitative evaluation of the impaired conditions, and to help the clinicians properly decide the rehabilitative process. This tool can be used for score prediction based off the [U-Limb](https://academic.oup.com/gigascience/article/10/6/giab043/6304920) dataset and training with custom data.  
 
 **Dataset** U-Limb is a large, multimodal, multi-center dataset on human upper-limb movements. The kinematic data consists the position data of thorax, upper-and forearm markers. We are currently using the markers for thumb and little finger side
-[Data] {https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/FU3QZ9} 
+[Data](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/FU3QZ9)
 
 ---------------------------------------
 
@@ -16,26 +16,19 @@ Currently, there are standard clinical practices where trained physicians visual
 
 ---------------------------------------
 
-### Installation and how to use
-* Open a terminal and change your working directory to the desired location for the **SenBaCE** package.
-* Clone the repoistory using `git clone https://github.com/hanbincho/clinical-sensor-scoring.git`
-* `cd` into the repository `cd clinical-sensor-scoring`.
-* Set up a new virtual environment with all necessary packages and their dependencies using `conda env create -f environment.yml`.
-* Activate the virtual environment with `conda activate senbace`.
-* `cd` into `senbace` package in the terminal via `cd senbace`
-* In the terminal run `Streamlit run main.py --server.maxUploadSize 400`
+### How to use
+**SenBaCE** can be used via the online platform, or on a local terminal.
+#### Online
+**SenBaCE** is hosted online on Streamlit's server and can be accessed via: [SenBaCE](https://hanbincho-clinical-sensor-scoring-senbacemain-enhox7.streamlit.app/).
 
----------------------------------------
-
-** Deploying on Streamlit ** 
-
---------------------------------------- 
-
-### Running Tests
-
-* Test files exist for the functions and submodules used in this project. 
-* Tests are automatically run when pushed to GitHub using github workflows. 
-* To run unittests locally, clone the repository and at the root run `python -m unittest`.
+#### Locally, via the command line/terminal
+> * Open a terminal and change your working directory to the desired location for the **SenBaCE** package.
+> * Clone the repoistory using `git clone https://github.com/hanbincho/clinical-sensor-scoring.git`
+> * `cd` into the repository `cd clinical-sensor-scoring`.
+> * Set up a new virtual environment with all necessary packages and their dependencies using `conda env create -f environment.yml`.
+> * Activate the virtual environment with `conda activate senbace`.
+> * `cd` into `senbace` package in the terminal via `cd senbace`
+> * In the terminal run `Streamlit run main.py --server.maxUploadSize 400`
 
 ---------------------------------------
 
@@ -50,7 +43,6 @@ Currently, there are standard clinical practices where trained physicians visual
 ├── image.png
 ├── senbace
 │   ├── __init__.py
-│   ├── __init__.pyc
 │   ├── alexnet_model.py
 │   ├── generated_plots_for_prediction
 │   │   ├── 01_1_3-WRA-X.png
@@ -58,7 +50,6 @@ Currently, there are standard clinical practices where trained physicians visual
 │   │   └── 01_1_3-WRA-Y.png
 │   ├── main.py
 │   ├── make_prediction.py
-│   ├── make_prediction.pyc
 │   ├── pages
 │   │   ├── 1_load_data.py
 │   │   ├── 2_show_training_plot.py
@@ -69,7 +60,6 @@ Currently, there are standard clinical practices where trained physicians visual
 │   └── train_model.py
 └── tests
     ├── __init__.py
-    ├── __init__.pyc
     ├── random_test_signals
     │   ├── create_random_sensor_data.py
     │   ├── edge_case_test_signal1.csv
@@ -92,37 +82,15 @@ Currently, there are standard clinical practices where trained physicians visual
     │   ├── S3_1_1_WRA-X.png
     │   ├── S3_1_1_WRA-Y.png
     │   └── S3_1_1_WRA-Z.png
-    ├── test_loader.pyc
     ├── test_make_prediction.py
-    ├── test_make_prediction.pyc
     ├── test_model
     │   ├── alex_net_changed_classes_170eps.pth:Zone.Identifier
     │   └── alexnet_model_pretrained.pth
     ├── test_process_data.py
-    ├── test_process_data.pyc
     ├── test_train_model.py
-    └── test_train_model.pyc
 ```
 
 ---------------------------------------
-
-### File Descriptions:
-* What it does
-* sortware dependencies
-* Instructions on how to use the code
-* Examples --> how to work with package **
-
-
-1. senbace: 
-2. tests : 
-3. doc -> software_design.md: project information such as Users and Component Design
-4. environment.yml : virtual environment libraries
-
-Senbace_dashboard::  
-
-
----------------------------------------
-
 
 SenBaCE logo adopted from [Icon8](https://icons8.com/icons/set/Electromyograph).
 

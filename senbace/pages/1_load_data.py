@@ -48,13 +48,16 @@ def plot(file):
         raise ValueError("One or more column names in CSV file do not match the required format.")
 
     st.header("Plots from Raw Data")
+    image_path = os.getcwd() + '/generated_plots_for_prediction/'
+    os.mkdirs(image_path, exist_ok=True)
     for col in sensor_data:
         fig = plt.figure()
         st.write('Plot for ' + file.name.split('.')[0] + '-' + col)
         plt.plot(sensor_data[col], 'r')
         plt.xlim(0.0)
         plt.axis('off')
-        plt.savefig(os.getcwd() + '/generated_plots_for_prediction/' + file.name.split('.')[0] + '-' + col + '.png', dpi=600)
+
+        plt.savefig(image_path + file.name.split('.')[0] + '-' + col + '.png', dpi=600)
         plt.close()
         st.write(fig)
 
@@ -91,7 +94,7 @@ with col2:
     if predict_pressed:
         st.write('Default training model will be used to predict score.')
 
-        file_path = os.getcwd() + '/generated_plots_for_prediction/'
+        file_path = os.getcwd() + 'senbace/generated_plots_for_prediction/'
         files = os.listdir(file_path)
         data_loader = make_prediction.load_data(file_path, 1)
         model_path = '../tests/test_model/alex_net_changed_classes_170eps.pth'

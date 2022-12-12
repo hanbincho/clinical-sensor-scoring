@@ -20,7 +20,8 @@ import os
 # Import packages for creating machine learning model
 import torch
 import torchvision
-from senbace.prediction_and_training.alexnet_model import AlexNet 
+# from senbace.prediction_and_training.alexnet_model import AlexNet 
+from .alexnet_model import AlexNet 
 
 # Import packages needed for data preprocessing
 from tensorflow.keras.utils import load_img

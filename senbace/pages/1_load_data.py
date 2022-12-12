@@ -115,7 +115,7 @@ with col2:
                     f.write((displayed_text) + '\n')
                 f.close()
 
-        st.download_button("Download scores", pred_score, file_name = patient_input +'_patient_predicted_scores.txt')
+        st.download_button("Download scores", str(pred_score), file_name = patient_input +'_patient_predicted_scores.txt')
 
 text_out = st.text_area("Feedback: " )
 

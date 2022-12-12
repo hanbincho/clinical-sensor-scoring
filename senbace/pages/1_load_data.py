@@ -115,6 +115,8 @@ with col2:
                     f.write((displayed_text) + '\n')
                 f.close()
 
+        st.download("Predicted scores", patient_input + '_patient_predicted_scores.txt')
+
 text_out = st.text_area("Feedback: " )
 
 

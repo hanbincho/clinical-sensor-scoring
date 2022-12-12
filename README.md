@@ -32,7 +32,7 @@ Currently, there are standard clinical practices where trained physicians visual
 
 ---------------------------------------
 
-** Deploying on Streamlit** 
+** Deploying on Streamlit ** 
 
 --------------------------------------- 
 
@@ -45,6 +45,10 @@ Currently, there are standard clinical practices where trained physicians visual
 ---------------------------------------
 
 ### File Descriptions:
+* What it does
+* sortware dependencies
+* Instructions on how to use the code
+* Examples --> how to work with package **
 
 ---------------------------------------
 

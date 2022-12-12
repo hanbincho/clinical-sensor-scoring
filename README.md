@@ -39,7 +39,7 @@ Currently, there are standard clinical practices where trained physicians visual
 
 ---------------------------------------
 
-## Repository structure
+## Repository Structure
 ```
 ├── LICENSE
 ├── README.md

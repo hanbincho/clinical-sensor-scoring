@@ -49,7 +49,7 @@ def plot(file):
 
     st.header("Plots from Raw Data")
     image_path = os.getcwd() + '/generated_plots_for_prediction/'
-    os.mkdirs(image_path, exist_ok=True)
+    os.makedirs(image_path, exist_ok=True)
     for col in sensor_data:
         fig = plt.figure()
         st.write('Plot for ' + file.name.split('.')[0] + '-' + col)

@@ -101,9 +101,11 @@ with col2:
         pred_score = make_prediction.score_prediction(data_loader, model_path)
         # st.write(pred_score)
 
+        score_list = []
         for ii in range(len(pred_score)):
             displayed_text = 'Predicted score for {}: {}'.format(files[ii].split('.')[0], pred_score[ii])
             st.write(displayed_text) 
+            score_list.append(displayed_text)
 
             if patient_input:
                 with open(patient_input +'_predicted_scores.txt', 'a') as f:
@@ -115,7 +117,7 @@ with col2:
                     f.write((displayed_text) + '\n')
                 f.close()
 
-        st.download_button("Download scores", str(pred_score), file_name = patient_input +'_patient_predicted_scores.txt')
+        st.download_button("Download scores", str(score_list), file_name = patient_input +'_patient_predicted_scores.txt')
 
 text_out = st.text_area("Feedback: " )
 

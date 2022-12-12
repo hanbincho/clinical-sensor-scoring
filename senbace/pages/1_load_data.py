@@ -97,7 +97,7 @@ with col2:
         file_path = os.getcwd() + '/senbace/generated_plots_for_prediction/'
         files = os.listdir(file_path)
         data_loader = make_prediction.load_data(file_path, 1)
-        model_path = '../tests/test_model/alex_net_changed_classes_170eps.pth'
+        model_path = os.getcwd() + '/tests/test_model/alex_net_changed_classes_170eps.pth'
         pred_score = make_prediction.score_prediction(data_loader, model_path)
         # st.write(pred_score)
 

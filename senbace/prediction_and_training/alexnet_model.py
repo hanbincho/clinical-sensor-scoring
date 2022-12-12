@@ -29,7 +29,20 @@ import torch.nn.functional as F
 # Create the CNN Model
 class AlexNet(nn.Module):
     """
-    Neural network model consisting of layers propsed by AlexNet paper.
+    Neural network model consisting of layers propsed by AlexNet paper
+
+    Parameters
+    ----------
+    num_classes : int
+        The number of classes or possible outcomes for classification
+
+    p_drop : double
+        The probability of a node in the neural network be dropped or
+        temporarily removed
+
+    Returns
+    ----------
+    None
     """
     def __init__(self, num_classes=1, p_drop=0.5):
         super(AlexNet, self).__init__()
@@ -111,7 +124,17 @@ class AlexNet(nn.Module):
         self.init_bias()
 
     def init_bias(self):
-        # Initialize weights according to original paper
+        """
+        Initialize weights according to original paper
+
+        Parameters
+        ----------
+        None
+
+        Returns
+        ----------
+        None
+        """
         for layer in self.net:
             if isinstance(layer, nn.Conv2d):
                 nn.init.normal_(layer.weight, mean=0, std=0.01)
@@ -122,6 +145,17 @@ class AlexNet(nn.Module):
         nn.init.constant_(self.net[14].bias, 1)
 
     def forward(self, x):
+        """
+        Pass the inputs from each sequence of layers to obtain the output
+
+        Parameters
+        ----------
+        None
+
+        Returns
+        ----------
+        None
+        """
         x = self.net(x)
         # reduce the dimensions for linear layer input
         x = torch.flatten(x, start_dim=1)

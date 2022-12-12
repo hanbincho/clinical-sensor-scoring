@@ -12,11 +12,12 @@ import torch
 import numpy as np
 from torch import nn
 import os
-os.sys.path.append('../')
 from .alexnet_model import AlexNet
+os.sys.path.append('../')
 
 def train_data(num_epochs, learning_rate, data_batch_size, user_data_loader):
     """
+    Train the AlexNet model with user specific hyperparameters and datset
 
     Parameters
     ----------

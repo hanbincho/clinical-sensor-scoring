@@ -8,6 +8,11 @@ import os
 import re
 import matplotlib.pyplot as plt
 
+from prediction_and_training import make_prediction
+from prediction_and_training.alexnet_model import AlexNet 
+
+from PIL import Image
+from io import BytesIO
 
 # Import required packages
 def plot(file):
@@ -41,16 +46,17 @@ def plot(file):
 
     if not all(dataframe_col_name_check):
         raise ValueError("One or more column names in CSV file do not match the required format.")
-    with col2:
-        st.header("Plots from Raw Data")
-        for col in sensor_data:
-            fig = plt.figure()
-            plt.plot(sensor_data[col], 'r')
-            plt.xlim(0.0)
-            plt.axis('off')
-            plt.savefig('./generated_plots_for_prediction/' + file.name.split('.')[0] + '-' + col + '.png', dpi=600)
-            plt.close()
-            st.write(fig)
+
+    st.header("Plots from Raw Data")
+    for col in sensor_data:
+        fig = plt.figure()
+        st.write('Plot for ' + file.name.split('.')[0] + '-' + col)
+        plt.plot(sensor_data[col], 'r')
+        plt.xlim(0.0)
+        plt.axis('off')
+        plt.savefig('./generated_plots_for_prediction/' + file.name.split('.')[0] + '-' + col + '.png', dpi=600)
+        plt.close()
+        st.write(fig)
 
 st.set_page_config(page_title="Load Data")
 if "visibility" not in st.session_state:
@@ -73,24 +79,42 @@ with col1:
     upload_csv = st.file_uploader("Choose a file", key='1')
     if upload_csv:
         plot(upload_csv)
-    model_option = st.selectbox(
-        "Select Model",
-        ('Model 1', 'Model 2', 'Upload a model'),
-    )
-
-    if model_option == 'Upload a model':
-        upload_model = st.file_uploader("Choose a file", key='2')
 
 
-        # if os.path.exists(file) != True:
-        # raise FileNotFoundError("Provided file does not exist.")
-        # if upload_csv:
 
-    # if patient_input and loca_option and model_option:
-    #   if st.button("Analyze"):
-    #      with col2:
-    #         st.write("Plots will be here")
+#================================================================
 
-next = st.button("Next Page")
-if next:
-    switch_page("show_training_plot")
+with col2:
+    st.markdown("## Predicting with a Pretrained Model")
+    predict_pressed = st.button("Predict Scores")
+
+    if predict_pressed:
+        st.write('Default training model will be used to predict score.')
+
+        file_path = os.getcwd() + '/generated_plots_for_prediction/'
+        files = os.listdir(file_path)
+        data_loader = make_prediction.load_data(file_path, 1)
+        model_path = '../tests/test_model/alex_net_changed_classes_170eps.pth'
+        pred_score = make_prediction.score_prediction(data_loader, model_path)
+        # st.write(pred_score)
+
+        for ii in range(len(pred_score)):
+            displayed_text = 'Predicted score for {}: {}'.format(files[ii], pred_score[ii])
+            st.write(displayed_text) 
+
+            if patient_input:
+                with open(patient_input +'_predicted_scores.txt', 'a') as f:
+                    f.write((displayed_text) + '\n')
+                f.close()
+
+            else:
+                with open('patient_predicted_scores.txt', 'a') as f:
+                    f.write((displayed_text) + '\n')
+                f.close()
+
+  
+text_out = st.text_area("Feedback: ", "Temporary text for now...")
+ 
+        
+
+

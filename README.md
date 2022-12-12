@@ -26,6 +26,8 @@ Currently, there are standard clinical practices where trained physicians visual
 * `cd` into `senbace` package in the terminal via `cd senbace`
 * In the terminal run `Streamlit run main.py --server.maxUploadSize 400`
 
+
+**Streamlit Dashboard** 
 ---
 SenBaCE logo adopted from [Icon8](https://icons8.com/icons/set/Electromyograph).
 

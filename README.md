@@ -30,7 +30,7 @@ Currently, there are standard clinical practices where trained physicians visual
 	> * In the terminal run `Streamlit run main.py --server.maxUploadSize 400`
 	> * A link to the landing page is displayed on the terminal. With `Ctrl~ pressed on the keyboard, click on the link to open the app.
 	
-* **SenBaCE**'s landing	page is similar for both methods of access and looks like as shown below
+* **SenBaCE**'s landing	page is similar for both methods of access and looks as shown below
 <p align="center" width="100%">
 	<img src= "doc/images/senbaceLandingPage.png"></img>
 </p>

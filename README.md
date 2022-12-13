@@ -143,7 +143,6 @@ The preinstalled ML model can also be fine-tuned as detailed below.
     │   └── S3_1_1_WRA-Z.png
     ├── test_make_prediction.py
     ├── test_model
-    │   ├── alex_net_changed_classes_170eps.pth:Zone.Identifier
     │   └── alexnet_model_pretrained.pth
     ├── test_process_data.py
     ├── test_train_model.py

@@ -16,10 +16,10 @@ Currently, there are standard clinical practices where trained physicians visual
 
 ---------------------------------------
 
-### How to use
+## How to use
 **SenBaCE** can be accessed directly on the web or through the command line/local terminal.
 
-* The web platform is hosted on on Streamlit's server and can be accessed via this link ===> [SenBaCE](https://hanbincho-clinical-sensor-scoring-senbacemain-enhox7.streamlit.app/).
+* The web platform is hosted on Streamlit's server and can be accessed via this link ===> [SenBaCE](https://hanbincho-clinical-sensor-scoring-senbacemain-enhox7.streamlit.app/).
 * To access **SenBaCE** via the command line/local terminal:
 	> * Open a terminal and change your working directory to the desired location for the **SenBaCE** package.
 	> * Clone the repoistory using `git clone https://github.com/hanbincho/clinical-sensor-scoring.git`
@@ -28,14 +28,14 @@ Currently, there are standard clinical practices where trained physicians visual
 	> * Activate the virtual environment with `conda activate senbace`.
 	> * `cd` into `senbace` package in the terminal via `cd senbace`
 	> * In the terminal run `Streamlit run main.py --server.maxUploadSize 400`
-	> * A link to the landing page is displayed on the terminal. With `Ctrl~ pressed on the keyboard, click on the link to open the app.
+	> * A link to the landing page is displayed on the terminal. With `Ctrl` pressed on the keyboard, click on the link to open the app.
 	
 * **SenBaCE**'s landing	page is similar for both methods of access and looks as shown below
 <p align="center" width="100%">
 	<img src= "doc/images/senbaceLandingPage.png"></img>
 </p>
 
-#### Predicting scores for patient's sensor data
+### Predicting scores for patient's sensor data
 * To upload the sensor data for **ONE** patient saved in a csv file, click on  the`load data` menu on the sidebar.
 	> * Enter the patient's name in the `Patient Name` text box and hit `Enter` on the keyboard.
 	> * Drag and drop or click on `Browse files` to upload the patient's sensor data.
@@ -61,7 +61,7 @@ Currently, there are standard clinical practices where trained physicians visual
 	<img src= "doc/images/predictScore.png"></img>
 </p>
 
-#### Training model using newly acquired sensor data.
+### Training model using newly acquired sensor data.
 The preinstalled ML model can also be fine-tuned as detailed below. 
 * On the sidebar of the landing page which was shown above, select the `training and prediction` menu. 
 <p align="center" width="100%">	

@@ -34,6 +34,7 @@ Currently, there are standard clinical practices where trained physicians visual
 <p align="center" width="100%">
 	<img src= "doc/images/senbaceLandingPage.png"></img>
 </p>
+
 * To upload the sensor data for **ONE** patient saved in a csv file, click on `load data` on the sidebar
 	> * Enter the patient's name in the `Patient Name` text box and hit `Enter` on the keyboard.
 	> * Drag and drop or click on `Browse files` to upload the patient's sensor data.
@@ -49,6 +50,7 @@ Currently, there are standard clinical practices where trained physicians visual
 <p align="center" width="100%">	
 	<img src= "doc/images/loadData.png"></img>
 </p>
+
 * Upon uploading, the plots for each column of sensor data in the uploaded csv file are generated and displayed on the screen.
 * After all plots have been generated, on the right of the page, click the `Predict Score` button.
 	* This uses the pretrained ML models to assign scores for each column of sensor data.

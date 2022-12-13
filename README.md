@@ -1,4 +1,4 @@
-# <img src= "doc/electromyography.png" height="60"></img> Sensor Based Clinical Evaluations (SenBaCE)
+# <img src= "doc/images/electromyography.png" height="60"></img> Sensor Based Clinical Evaluations (SenBaCE)
 ---
 [![Python Package using Conda](https://github.com/hanbincho/clinical-sensor-scoring/actions/workflows/python-package-conda.yml/badge.svg)](https://github.com/hanbincho/clinical-sensor-scoring/actions/workflows/python-package-conda.yml)
 [![Coverage Badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/hanbincho/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/raw/clinical-sensor-scoring__heads_main.json)]
@@ -17,19 +17,24 @@ Currently, there are standard clinical practices where trained physicians visual
 ---------------------------------------
 
 ### How to use
-**SenBaCE** can be used via the online platform, or on a local terminal.
-#### Online
-**SenBaCE** is hosted online on Streamlit's server and can be accessed via: [SenBaCE](https://hanbincho-clinical-sensor-scoring-senbacemain-enhox7.streamlit.app/).
+**SenBaCE** can be accessed directly on the web or through the command line/local terminal.
 
-#### Locally, via the command line/terminal
-> * Open a terminal and change your working directory to the desired location for the **SenBaCE** package.
-> * Clone the repoistory using `git clone https://github.com/hanbincho/clinical-sensor-scoring.git`
-> * `cd` into the repository `cd clinical-sensor-scoring`.
-> * Set up a new virtual environment with all necessary packages and their dependencies using `conda env create -f environment.yml`.
-> * Activate the virtual environment with `conda activate senbace`.
-> * `cd` into `senbace` package in the terminal via `cd senbace`
-> * In the terminal run `Streamlit run main.py --server.maxUploadSize 400`
-
+* The web platform is hosted on on Streamlit's server and can be accessed via this link ===> [SenBaCE](https://hanbincho-clinical-sensor-scoring-senbacemain-enhox7.streamlit.app/).
+* To access **SenBaCE** via the command line/local terminal:
+	> * Open a terminal and change your working directory to the desired location for the **SenBaCE** package.
+	> * Clone the repoistory using `git clone https://github.com/hanbincho/clinical-sensor-scoring.git`
+	> * `cd` into the repository `cd clinical-sensor-scoring`.
+	> * Set up a new virtual environment with all necessary packages and their dependencies using `conda env create -f environment.yml`.
+	> * Activate the virtual environment with `conda activate senbace`.
+	> * `cd` into `senbace` package in the terminal via `cd senbace`
+	> * In the terminal run `Streamlit run main.py --server.maxUploadSize 400`
+	> * A link to the landing page is displayed on the terminal. With `Ctrl~ pressed on the keyboard, click on the link to open the app.
+	
+> * **SenBaCE**'s landing	page is similar for both methods of access and looks like as shown below
+> 	<img src= "doc/images/senbaceLandingPage.png"></img>
+>
+> * To get the scores for sensor data 
+>	<img src= "doc/images/loadData.png"></img>
 ---------------------------------------
 
 ## Repository Structure

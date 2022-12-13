@@ -1,3 +1,24 @@
+"""AlexNetModel
+A class to represent the specific type of CNN model used for predicting  clinical scores.
+
+This requires the following to be installed within the Python environment:
+    * torch
+    * torchvision
+    * numpy
+
+This file can be imported and contains the following:
+    Attributes
+    ----------
+    * net: a sequence of convolutional, batch normalization, max pooling, and 
+        activation layers
+    * classifier: a sequence of fully linear connected and dropout layers
+
+    Methods
+    -------
+    * init_bias: initialization of weights and bias to improve time to optimization
+    * forward: forward propagation where the input is passed through the network
+"""
+
 # Import packages for creating machine learning model
 import torch
 import torchvision
@@ -5,20 +26,28 @@ import numpy as np
 from torch import nn
 import torch.nn.functional as F
 
-#Create the CNN Model
+# Create the CNN Model
 class AlexNet(nn.Module):
     """
-    Neural network model consisting of layers propsed by AlexNet paper.
+    Neural network model consisting of layers propsed by AlexNet paper
+
+    Parameters
+    ----------
+    num_classes : int
+        The number of classes or possible outcomes for classification
+
+    p_drop : double
+        The probability of a node in the neural network be dropped or
+        temporarily removed
+
+    Returns
+    ----------
+    None
     """
     def __init__(self, num_classes=1, p_drop=0.5):
-        """
-        Define and allocate layers for this neural net.
-        Args:
-            num_classes (int): number of classes to predict with this model
-        """
         super(AlexNet, self).__init__()
         
-        # convolutional and max pooling layers
+        # convolutional, batch normalization, activation, and max pooling layers
         self.net = nn.Sequential(
             # Input: (n x 227 x 227 x 3)
             # Convolutional layer 1 w/ max pooling
@@ -62,7 +91,7 @@ class AlexNet(nn.Module):
             nn.MaxPool2d(kernel_size=3, stride=2)
         )
         
-        # 3 fully connected layers
+        # 4 fully connected layers
         self.classifier = nn.Sequential(
             # Input: (n x 9216)
             # Dropout layer 1
@@ -95,7 +124,17 @@ class AlexNet(nn.Module):
         self.init_bias()
 
     def init_bias(self):
-        # Initialize weights according to original paper
+        """
+        Initialize weights according to original paper
+
+        Parameters
+        ----------
+        None
+
+        Returns
+        ----------
+        None
+        """
         for layer in self.net:
             if isinstance(layer, nn.Conv2d):
                 nn.init.normal_(layer.weight, mean=0, std=0.01)
@@ -106,6 +145,17 @@ class AlexNet(nn.Module):
         nn.init.constant_(self.net[14].bias, 1)
 
     def forward(self, x):
+        """
+        Pass the inputs from each sequence of layers to obtain the output
+
+        Parameters
+        ----------
+        None
+
+        Returns
+        ----------
+        None
+        """
         x = self.net(x)
         # reduce the dimensions for linear layer input
         x = torch.flatten(x, start_dim=1)

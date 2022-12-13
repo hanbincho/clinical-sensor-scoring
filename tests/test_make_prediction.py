@@ -1,14 +1,9 @@
-#Import packages
+# Import packages
 import unittest
 import numpy as np
 import torch
 import os
 import tensorflow
-
-# from senbace.make_prediction import load_data
-# from senbace.make_prediction import score_prediction
-# from senbace.train_model import train_data
-
 from senbace.prediction_and_training import make_prediction 
 from senbace.prediction_and_training import train_model 
 

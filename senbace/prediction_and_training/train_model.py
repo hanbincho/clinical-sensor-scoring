@@ -12,30 +12,32 @@ import torch
 import numpy as np
 from torch import nn
 import os
-os.sys.path.append('../')
 from .alexnet_model import AlexNet
-# import alexnet_model  
+os.sys.path.append('../')
 
 def train_data(num_epochs, learning_rate, data_batch_size, user_data_loader):
     """
+    Train the AlexNet model with user specific hyperparameters and datset
 
     Parameters
     ----------
-    num_epochs : TYPE
-        DESCRIPTION.
-    learning_rate : TYPE
-        DESCRIPTION.
-    data_batch_size : TYPE
-        DESCRIPTION.
-    user_data_loader : TYPE
-        DESCRIPTION.
+    num_epochs : int
+        A value representing the number of training cycles for the machine learning
+        model
+    learning_rate : double
+        A value representing the step size of each iteration while optimizing the loss 
+        function
+    data_batch_size : int
+        A value representing the number of images used for training during an iteration
+    user_data_loader : Dataloader
+        A dataloader containing the images to be used for model training
 
     Returns
     -------
-    accuracy_list : TYPE
-        DESCRIPTION.
+    accuracy_list : list
+        A list of training accuracies recorded during training of the model
     loss_list : TYPE
-        DESCRIPTION.
+        A list of training lossess recorded during training of the model
 
     """
     if (num_epochs <= 0): #

@@ -20,6 +20,7 @@ import os
 # Import packages for creating machine learning model
 import torch
 import torchvision
+
 # from senbace.prediction_and_training.alexnet_model import AlexNet 
 from .alexnet_model import AlexNet 
 
@@ -42,7 +43,7 @@ def load_data(images_path, data_batch_size, scores_path=""):
     data_batch_size : int
         A value representing the batch size when creating the data loader for the images
     scores_path : str
-        An existing file that contains the score assigned.
+        An existing file that contains the score assigned
 
     Returns
     ----------
@@ -134,19 +135,20 @@ def load_data(images_path, data_batch_size, scores_path=""):
 
 def score_prediction(test_loader, model):
     """
-
+    Predict a clinical score for each image 
 
     Parameters
     ----------
-    test_loader : TYPE
-        DESCRIPTION.
-    model : TYPE
-        DESCRIPTION.
+    test_loader : Dataloader
+        A dataloader, created from the use of load_data, that contains images for 
+        prediction
+    model : str
+        An existing directory that points to the .pth file to be used for prediction
 
     Returns
     -------
-    predictions : TYPE
-        DESCRIPTION.
+    predictions : list
+        A list of values reflecting the predicted scores assigned to each image
 
     """
     # if GPU is available, set it to curr_device

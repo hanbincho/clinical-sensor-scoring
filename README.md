@@ -31,7 +31,9 @@ Currently, there are standard clinical practices where trained physicians visual
 	> * A link to the landing page is displayed on the terminal. With `Ctrl~ pressed on the keyboard, click on the link to open the app.
 	
 * **SenBaCE**'s landing	page is similar for both methods of access and looks like as shown below
+<p align="center" width="100%">
 	<img src= "doc/images/senbaceLandingPage.png"></img>
+</p>
 * To upload the sensor data for **ONE** patient saved in a csv file, click on `load data` on the sidebar
 	> * Enter the patient's name in the `Patient Name` text box and hit `Enter` on the keyboard.
 	> * Drag and drop or click on `Browse files` to upload the patient's sensor data.
@@ -44,12 +46,17 @@ Currently, there are standard clinical practices where trained physicians visual
 	>				* \### should be replaced by a 3 letter abbreviation for the sensor location; and
 	>				* $ should be replaced by the axis of measurement for the sensor.
 	>				* For example WRA-X to denote readings from the WRA sensor in the X-axis.
-	> <img src= "doc/images/loadData.png"></img>
+<p align="center" width="100%">	
+	<img src= "doc/images/loadData.png"></img>
+</p>
 * Upon uploading, the plots for each column of sensor data in the uploaded csv file are generated and displayed on the screen.
 * After all plots have been generated, on the right of the page, click the `Predict Score` button.
 	* This uses the pretrained ML models to assign scores for each column of sensor data.
 	* The predicted scores are displayed on the screen.
+	* Clicking the `Download Scores` button, downloads a text file containing the predicted scores for each sensor data as displayed on the page. 
+<p align="center" width="100%">	
 	<img src= "doc/images/predictScore.png"></img>
+</p>
 ---------------------------------------
 
 ## Repository Structure

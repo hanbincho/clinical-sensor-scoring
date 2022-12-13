@@ -67,18 +67,21 @@ The preinstalled ML model can also be fine-tuned as detailed below.
 <p align="center" width="100%">	
 	<img src= "doc/images/trainingPrediction.jpg"></img>
 </p>
+
 * In the `Choose an image file` section, Drag and drop or click on `Browse files` to upload `.png` plots of patients sensor data.
 * In the `Choose a scores file` section, Drag and drop or click on `Browse files` to upload a `.csv` file containing the labels for each health category.
 * Scroll down to the `Hyperparameters` section of the page and edit the `Batch Size`, `Epochs`, & `Learning Rate` options to suit. 
 <p align="center" width="100%">	
 	<img src= "doc/images/hyperParameters.jpg"></img>
 </p>
+
 * Scroll down and click on the `Train Model` button.
 * When the training is competed the plots for training accuracy and training loss are displayed on the page.
 	* Note that these plots will only be generated for `Epochs` > 1. 
 <p align="center" width="100%">	
 	<img src= "doc/images/trainedModel.jpg"></img>
 </p>
+
 ---------------------------------------
 
 ## Repository Structure
@@ -86,8 +89,15 @@ The preinstalled ML model can also be fine-tuned as detailed below.
 ├── LICENSE
 ├── README.md
 ├── doc
-│   ├── electromyography.png
-│   └── software_design.md
+│   ├── software_design.md
+│   └── images
+│   │   ├── electromyography.png
+│   │   ├── hyperParameters.jpg
+│   │   ├── loadData.png
+│   │   ├── predictScore.png
+│   │   ├── senbaceLandingPage.png
+│   │   ├── trainedModel.jpg
+│   │   ├── trainingPrediction.jpg
 ├── environment.yml
 ├── image.png
 ├── senbace

@@ -35,7 +35,8 @@ Currently, there are standard clinical practices where trained physicians visual
 	<img src= "doc/images/senbaceLandingPage.png"></img>
 </p>
 
-* To upload the sensor data for **ONE** patient saved in a csv file, click on `load data` on the sidebar
+#### Predicting scores for patient's sensor data
+* To upload the sensor data for **ONE** patient saved in a csv file, click on  the`load data` menu on the sidebar.
 	> * Enter the patient's name in the `Patient Name` text box and hit `Enter` on the keyboard.
 	> * Drag and drop or click on `Browse files` to upload the patient's sensor data.
 	>	*  Make sure that:
@@ -58,6 +59,25 @@ Currently, there are standard clinical practices where trained physicians visual
 	* Clicking the `Download Scores` button, downloads a text file containing the predicted scores for each sensor data as displayed on the page. 
 <p align="center" width="100%">	
 	<img src= "doc/images/predictScore.png"></img>
+</p>
+
+#### Training model using newly acquired sensor data.
+The preinstalled ML model can also be fine-tuned as detailed below. 
+* On the sidebar of the landing page which was shown above, select the `training and prediction` menu. 
+<p align="center" width="100%">	
+	<img src= "doc/images/trainingPrediction.jpg"></img>
+</p>
+* In the `Choose an image file` section, Drag and drop or click on `Browse files` to upload `.png` plots of patients sensor data.
+* In the `Choose a scores file` section, Drag and drop or click on `Browse files` to upload a `.csv` file containing the labels for each health category.
+* Scroll down to the `Hyperparameters` section of the page and edit the `Batch Size`, `Epochs`, & `Learning Rate` options to suit. 
+<p align="center" width="100%">	
+	<img src= "doc/images/hyperParameters.jpg"></img>
+</p>
+* Scroll down and click on the `Train Model` button.
+* When the training is competed the plots for training accuracy and training loss are displayed on the page.
+	* Note that these plots will only be generated for `Epochs` > 1. 
+<p align="center" width="100%">	
+	<img src= "doc/images/trainedModel.jpg"></img>
 </p>
 ---------------------------------------
 

@@ -49,7 +49,7 @@ The following user groups have been identified as potential users for the `**Cli
 >> #### `Verify data format`
 >> * Functionality to check the structure of uploaded data, such as valid data types
 >> * Functionality to identify specific errors if uploaded data is unproperly formatted
->> #### `Database Management Systems (DBMS)
+>> #### Database Management Systems (DBMS)
 >> * Functionality to update data (i.e. models) accessible on database
 >> * Monitoring cloud storage and database security issues
 >> * Backup the storage if there is any issues or errors
@@ -63,17 +63,18 @@ The following user groups have been identified as potential users for the `**Cli
 >
 >> ### Use case(s)
 > #### Configure UI Framework
->> * **User**: Modifies and edits the user interface based on feedback with toolkits (wxPyhton, Ttinker, PyQT)
->> * **Interface**: Updates interface elements including input control and navigation components
->> * [if no error] Interface prompts a message informing UI that has been updated and stores changes in changelog
+>> * **User**: modifies the user interface based on feedback with toolkits (wxPyhton, Ttinker, PyQT)
+>> * **Interface**: updates interface elements including input control and navigation components
+>> * **Interface**: prompts a message informing UI that has been updated and stores changes in changelog
 >
 >> ### Component design
+>> #### `Update UI`
 >> * Toolkit that manages and edits UI directly
->> * Changelog that saves any modifications
+>> * Changelog that keep a history of modifications
 
-> ## User 4: Researchers
+> ## User 4: Researcher
 >> ### User story
->> Another user would be a researcher. They would be able to obtain clinically relevant scores for assessing patient motor behaviors, but with some more customization by selecting their machine learning model(s) of choice. They would use this tool to assess patient's motor symptoms, but also build on current models by performing additional training with model(s) of interest. They would be able familiar with the context of the data, understand if a score is reflective of the patient's motor behavior, and have a broad understanding of machine learning and neural networks.
+>> Another user would be a researcher. They would be able to obtain clinically relevant scores for assessing patient motor behaviors, but have some more customization by selecting their machine learning model(s) of choice and modifying hyperparameters for model training. They would use this tool to assess patient's motor symptoms, but also build on current models by performing additional training with model(s) of interest and looking at performance metrics of the model. They would be familiar with the context of the data, understand if a score is reflective of the patient's motor behavior, and have a broad understanding of machine learning and neural networks.
 > 
 >> ### Use case(s)
 >> #### Verify data format

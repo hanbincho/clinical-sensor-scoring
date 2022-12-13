@@ -1,7 +1,6 @@
 # <img src= "doc/images/electromyography.png" height="60"></img> Sensor Based Clinical Evaluations (SenBaCE)
 ---
 [![Python Package using Conda](https://github.com/hanbincho/clinical-sensor-scoring/actions/workflows/python-package-conda.yml/badge.svg)](https://github.com/hanbincho/clinical-sensor-scoring/actions/workflows/python-package-conda.yml)
-[![Coverage Badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/hanbincho/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/raw/clinical-sensor-scoring__heads_main.json)]
 
 ## Introduction
 **SenBaCE** is a tool that aims to assign clinically relevant scores based off of plots created from sensor data collected during motor tasks from individuals with motor impairments.We inted to provide a quantitative evaluation of the impaired conditions, and to help the clinicians properly decide the rehabilitative process. This tool can be used for score prediction based off the [U-Limb](https://academic.oup.com/gigascience/article/10/6/giab043/6304920) dataset and training with custom data.  
@@ -105,15 +104,13 @@ The preinstalled ML model can also be fine-tuned as detailed below.
 │   ├── alexnet_model.py
 │   ├── generated_plots_for_prediction
 │   │   ├── 01_1_3-WRA-X.png
-│   │   ├── 01_1_3-WRA-Y.1.png
-│   │   └── 01_1_3-WRA-Y.png
+│   │   ├── 01_1_3-WRA-Y.png
+│   │   └── 01_1_3-WRA-Z.png
 │   ├── main.py
 │   ├── make_prediction.py
 │   ├── pages
 │   │   ├── 1_load_data.py
-│   │   ├── 2_show_training_plot.py
-│   │   ├── 3_pretrained_and_prediction.py
-│   │   └── 4_training_and_prediction.py
+│   │   └── 2_training_and_prediction.py
 │   ├── process_data.py
 │   ├── save_prediction.py
 │   └── train_model.py

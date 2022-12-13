@@ -5,7 +5,6 @@ import os
 
 class TestGeneratePlots(unittest.TestCase):
 
-
     def test_smoke1(self):
         """
         Checks if `process_data` module runs without no problems.

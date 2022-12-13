@@ -7,27 +7,24 @@ The following user groups have been identified as potential users for the `**Cli
 >
 >> ### Use case(s)
 >> #### Obtain score
->> * User can open a file explorer interface to navigate to and select a .csv file of choice
->> * Interface provides list of possible machine learning models to provide score
->> * User selects model(s) of choice
->> * [if no error] Interface outputs score(s) for loaded data
->> * [if error encountered] Interface outputs error message
+>> * **User**: can convert a .csv file with sensor data into images.
+>> * **User**: can use a pre-trained model for clinical score prediction.
+>> * **Algorithm**: goes through uploaded images and assigns clinical scores.
+>> * **Interface**: outputs scores for loaded data and user can download.
+>> * **Interface**: outputs error message pointing to issue.
 >>
 >> #### Experience feedback
->> * User can leave feedback about the performance of model(s) or interface
->> * Feedback can be stored and reviewed to guide future updates
+>> * User can leave feedback about the performance of model(s) or interface.
+>> * Feedback can be stored and reviewed to guide future updates.
 >
 >> ### Component design
 >> #### `Obtain score`
->> * Loading functionality for raw data
->> * Selection of specific muscle/regions of upper extremities
->> * Conerting functionality to take loaded data and create images to be fed into the model
->> * Database with pretrained machine learning model(s)  
->> * Interface that takes processed data and uses model of choice to output score
+>> * Loading functionality for raw data contained in .csv file.
+>> * Converting functionality to take loaded data and create images to be fed into the model.
+>> * Access to pretrained machine learning model(s)  .
+>> * Interface that takes processed data and uses model of choice to output score.
 >> #### `Experience feedback`
->> * Interface that allows user to enter expected score if predicted score is significantly off from user's expectations
->> * Interface that allows user to enter text for qualitative feedback on model performance
->> * Interface that allows select users to access feedback and provide updates from collected feedback
+>> * Interface that allows user to enter text for qualitative feedback on model performance.
 
 
 > ## User 2: Database administrator

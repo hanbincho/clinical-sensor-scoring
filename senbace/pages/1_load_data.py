@@ -3,38 +3,28 @@ from streamlit_extras.switch_page_button import switch_page
 import streamlit as st
 import pandas as pd
 import numpy as np
-import io
 import os
 import re
 import matplotlib.pyplot as plt
-
 from prediction_and_training import make_prediction
 from prediction_and_training.alexnet_model import AlexNet 
-
-from PIL import Image
-from io import BytesIO
 
 # Import required packages
 def plot(file):
     """
-
+    Plot sensor data from a .csv file and save the plots as images
 
     Parameters
     ----------
-    file : TYPE
-        DESCRIPTION.
-
-    Raises
-    ------
-    ValueError
-        DESCRIPTION.
+    file : str
+        A directory where the file of interest containing sensor data is located
 
     Returns
     -------
-    None.
+    None
 
     """
-    ''''''
+
     # Set default image size to 6 x 4.5 in
     plt.rcParams['figure.figsize'] = (6, 4.5)
 
@@ -120,11 +110,6 @@ with col2:
         st.download_button("Download scores", str(score_list), file_name = patient_input +'_patient_predicted_scores.txt')
 
 text_out = st.text_area("Feedback: " )
-
-
-# with open(patient_input + '_patient_predicted_scores.txt', 'a') as f:
-#     f.write((text_out) + '\n')
-#     f.close()
  
         
 

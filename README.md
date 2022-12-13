@@ -30,11 +30,21 @@ Currently, there are standard clinical practices where trained physicians visual
 	> * In the terminal run `Streamlit run main.py --server.maxUploadSize 400`
 	> * A link to the landing page is displayed on the terminal. With `Ctrl~ pressed on the keyboard, click on the link to open the app.
 	
-> * **SenBaCE**'s landing	page is similar for both methods of access and looks like as shown below
-> 	<img src= "doc/images/senbaceLandingPage.png"></img>
->
-> * To get the scores for sensor data 
->	<img src= "doc/images/loadData.png"></img>
+* **SenBaCE**'s landing	page is similar for both methods of access and looks like as shown below
+	<img src= "doc/images/senbaceLandingPage.png"></img>
+* To upload the sensor data for **ONE** patient saved in a csv file, click on `load data` on the sidebar
+	> * Enter the patient's name in the `Patient Name` text bos and hit `Enter`.
+	> * Drag and drop or click on `Browse files` to upload the patient's sensor data.
+	>	*  Make sure that:
+    >        * The CSV file contains readings from only one sensor at a particular location on the patient's anatomy.
+    >        * The CSV file should be named using a user-preferred scheme which distinguishes patients.
+    >        * The CSV file must contain n-number of columns depending on the number of axes recorded using the sensor.
+    >        * The first row of the CSV file must specify an identifying tag for the sensor readings.
+	>			* Format of the tag should be ###-$, where;
+	>				* ### should be replaced by a 3 letter abbreviation for the sensor location; and
+	>				* $ should be replaced by the axis of measurement for the sensor.
+	>				* For example WRA-X to denote readings from the WRA sensor in the X-axis.
+	<img src= "doc/images/loadData.png"></img>
 ---------------------------------------
 
 ## Repository Structure

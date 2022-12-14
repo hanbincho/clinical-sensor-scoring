@@ -57,7 +57,7 @@ Currently, there are standard clinical practices where trained physicians visual
 	* The predicted scores are displayed on the screen.
 	* Clicking the `Download Scores` button, downloads a text file containing the predicted scores for each sensor data as displayed on the page. 
 <p align="center" width="100%">	
-	<img src= "doc/images/predictScore.png"></img>
+	<img src= "doc/images/predictScores.png"></img>
 </p>
 
 ### Training model using newly acquired sensor data.
@@ -78,7 +78,7 @@ The preinstalled ML model can also be fine-tuned as detailed below.
 * When the training is competed the plots for training accuracy and training loss are displayed on the page.
 	* Note that these plots will only be generated for `Epochs` > 1. 
 <p align="center" width="100%">	
-	<img src= "doc/images/trainedModelResults.PNG"></img>
+	<img src= "doc/images/trainedModel.PNG"></img>
 </p>
 
 ---------------------------------------

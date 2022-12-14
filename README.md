@@ -78,7 +78,7 @@ The preinstalled ML model can also be fine-tuned as detailed below.
 * When the training is competed the plots for training accuracy and training loss are displayed on the page.
 	* Note that these plots will only be generated for `Epochs` > 1. 
 <p align="center" width="100%">	
-	<img src= "doc/images/trainedModel.jpg"></img>
+	<img src= "doc/images/trainedModelResults.PNG"></img>
 </p>
 
 ---------------------------------------
@@ -95,7 +95,7 @@ The preinstalled ML model can also be fine-tuned as detailed below.
 │   │   ├── loadData.png
 │   │   ├── predictScore.png
 │   │   ├── senbaceLandingPage.png
-│   │   ├── trainedModel.jpg
+│   │   ├── trainedModelResults.PNG
 │   │   ├── trainingPrediction.jpg
 ├── environment.yml
 ├── image.png

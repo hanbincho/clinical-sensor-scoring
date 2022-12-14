@@ -12,7 +12,7 @@ class TestTrainModel(unittest.TestCase):
         learning_rate = 0.0001
         data_batch_size = 3
         smoke_data_loader = make_prediction.load_data(os.getcwd()+"/tests/test_images/", data_batch_size)
-        accuracy_list, loss_list = train_model.train_data(num_epochs, learning_rate,data_batch_size,smoke_data_loader)
+        accuracy_list, loss_list = train_model.train_data(num_epochs, learning_rate,data_batch_size,smoke_data_loader, "AlexNet")
         self.assertIsNotNone(accuracy_list)
         self.assertIsInstance(accuracy_list, list)
         self.assertIsNotNone(loss_list)
@@ -27,7 +27,7 @@ class TestTrainModel(unittest.TestCase):
         data_batch_size = -19.00
         with self.assertRaises(TypeError):
             smoke_data_loader = make_prediction.load_data(os.getcwd()+"/tests/test_images/", data_batch_size)
-            train_model.train_data(num_epochs, learning_rate,data_batch_size,smoke_data_loader)
+            train_model.train_data(num_epochs, learning_rate,data_batch_size,smoke_data_loader, "AlexNet")
         return
     
     def test_check_epochs(self):
@@ -39,7 +39,7 @@ class TestTrainModel(unittest.TestCase):
         data_batch_size = 3
         smoke_data_loader = make_prediction.load_data(os.getcwd()+"/tests/test_images/", data_batch_size)
         with self.assertRaises(ValueError):
-            train_model.train_data(num_epochs, learning_rate,data_batch_size,smoke_data_loader)
+            train_model.train_data(num_epochs, learning_rate,data_batch_size,smoke_data_loader, "AlexNet")
         return
 
     def test_check_learning_rate(self):
@@ -51,5 +51,5 @@ class TestTrainModel(unittest.TestCase):
         data_batch_size = 3
         smoke_data_loader = make_prediction.load_data(os.getcwd()+"/tests/test_images/", data_batch_size)
         with self.assertRaises(ValueError):
-            train_model.train_data(num_epochs, learning_rate,data_batch_size,smoke_data_loader)
+            train_model.train_data(num_epochs, learning_rate,data_batch_size,smoke_data_loader, "AlexNet")
         return

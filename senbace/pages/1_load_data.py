@@ -8,6 +8,8 @@ import re
 import matplotlib.pyplot as plt
 from prediction_and_training import make_prediction
 from prediction_and_training.alexnet_model import AlexNet 
+from prediction_and_training.resnet_model import ResNet18
+from prediction_and_training.resnet_model import ResBlock
 
 # Import required packages
 def plot(file):
@@ -79,17 +81,35 @@ with col1:
 
 with col2:
     st.markdown("## Predicting with a Pretrained Model")
+    model_type = st.radio("Select a model to predict with:", ("AlexNet", "ResNet", "Custom"))
+    if model_type == "Custom":
+        custom_file = st.file_uploader("Choose a custom model file")
+        if custom_file is not None:
+            download_model_path = os.getcwd() + "/senbace/uploadedData/model/"
+            if not os.path.exists(download_model_path):
+                # If not, make it
+                os.makedirs(download_model_path)
+            # Then save the model file
+            model_data = custom_file.getvalue()
+            model_to_save = open(download_model_path+custom_file.name, "wb")
+            model_to_save.write(model_data)
+            model_to_save.close()
+            st.write("Loaded: " + custom_file.name)
     predict_pressed = st.button("Predict Scores")
 
     if predict_pressed:
-        st.write('Default training model will be used to predict score.')
+        st.write(model_type + ' training model will be used to predict score.')
 
         file_path = os.getcwd() + '/senbace/generated_plots_for_prediction/'
         files = os.listdir(file_path)
         data_loader = make_prediction.load_data(file_path, 1)
-        model_path = os.getcwd() + '/tests/test_model/alex_net_changed_classes_170eps.pth'
+        if model_type == "AlexNet":
+            model_path = os.getcwd() + '/tests/test_model/alexnet_class_50eps.pth'
+        elif model_type == "ResNet":
+            model_path = os.getcwd() + '/tests/test_model/resnet_class_25eps.pth'
+        elif model_type == "Custom":
+            model_path = download_model_path+custom_file.name
         pred_score = make_prediction.score_prediction(data_loader, model_path)
-        # st.write(pred_score)
 
         score_list = []
         for ii in range(len(pred_score)):

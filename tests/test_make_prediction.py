@@ -44,5 +44,5 @@ class TestMakePrediction(unittest.TestCase):
         """
         smoke_data_loader = make_prediction.load_data(os.getcwd()+"/tests/test_images/", 1)
         train_model.train_data(num_epochs=10, learning_rate=.001, data_batch_size=1,
-            user_data_loader = smoke_data_loader)
+            user_data_loader = smoke_data_loader, model_type="AlexNet")
         return

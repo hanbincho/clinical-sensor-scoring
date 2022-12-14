@@ -18,7 +18,7 @@ st.sidebar.header("Training and Prediction")
 st.markdown("# Upoad files")
 
 # Uploading widgets for needed files
-image_file = st.file_uploader("Choose an image file", accept_multiple_files = True)
+image_file = st.file_uploader("Choose an image file(s)", accept_multiple_files = True)
 score_file = st.file_uploader("Choose a scores file", accept_multiple_files = False)
 
 st.markdown("# Hyperparameters")

@@ -1,13 +1,17 @@
+"""Test for train_model module contians parameters checks"""
 # Import packages
 import unittest
 import os
-from senbace.prediction_and_training import make_prediction 
-from senbace.prediction_and_training import train_model 
+from senbace.prediction_and_training import make_prediction
+from senbace.prediction_and_training import train_model
 
 class TestTrainModel(unittest.TestCase):
- 
+    """Contains smoke and edge tests for the parameters
+    """
     def test_smoke1(self):
-        """Smoke test: making sure model runs when all 3 parameters are given"""
+        """
+        Smoke Test: Making sure model runs when all 3 parameters are given correctly
+        """
         num_epochs = 10
         learning_rate = 0.0001
         data_batch_size = 3
@@ -20,7 +24,7 @@ class TestTrainModel(unittest.TestCase):
 
     def test_data_batch_size(self):
         """
-        Parameter 1 Test: Edge test for when a batch size is in float
+        Parameter 1 Test: Edge test for when a data_batch_size is in float and negative
         """
         num_epochs = 10
         learning_rate = 0.0001
@@ -32,7 +36,7 @@ class TestTrainModel(unittest.TestCase):
     
     def test_check_epochs(self):
         """
-        Parameter 2 Test: Edge test when epoch is 0
+        Parameter 2 Test: Edge test when num_epoch is 0
         """
         num_epochs = 0
         learning_rate = 0.0001

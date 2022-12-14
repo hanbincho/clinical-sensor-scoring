@@ -1,5 +1,5 @@
 """ResNetModel
-A class to represent the specific type of CNN model used for predicting clinical scores.
+Classes that comprise the ResNet model used for predicting clinical scores
 
 This requires the following to be installed within the Python environment:
     * torch
@@ -9,8 +9,7 @@ This requires the following to be installed within the Python environment:
 This file can be imported and contains the following:
     Attributes
     ----------
-    * net: a sequence of convolutional, batch normalization, max pooling, and 
-        activation layers
+    * layern: a sequence of layers and residual blocks 
     * classifier: a sequence of fully linear connected and dropout layers
 
     Methods
@@ -23,6 +22,7 @@ import torchvision
 import numpy as np
 from torch import nn
 import torch.nn.functional as F
+
 class ResBlock(nn.Module):
     """
     Component of the ResNet architecture that enables skip connections 
@@ -40,7 +40,7 @@ class ResBlock(nn.Module):
     None
     """
     def __init__(self, in_channels, out_channels, downsample):
-        super().__init__()
+        super(ResBlock, self).__init__()
         if downsample:
             self.conv1 = nn.Conv2d(in_channels, out_channels, kernel_size=3, stride=2, padding=1)
             self.shortcut = nn.Sequential(
@@ -63,8 +63,28 @@ class ResBlock(nn.Module):
         return nn.ReLU()(input)
 
 class ResNet18(nn.Module):
+    """
+    Neural network model consisting of residual blocks and additional layers
+    to create the ResNet model
+
+    Parameters
+    ----------
+    input_channels : int
+        The original depth of the training input
+
+    resblock : class
+        The architecture for the residual block to be used to incorporate skip
+        connections
+
+    num_classes : int
+        The number of classes or possible outcomes for classification
+
+    Returns
+    ----------
+    None
+    """
     def __init__(self, input_channels=3, resblock=ResBlock, num_classes=1000):
-        super().__init__()
+        super(ResNet18, self).__init__()
         self.layer0 = nn.Sequential(
             nn.Conv2d(in_channels=input_channels, out_channels=64, kernel_size=7, stride=2, padding=3),
             nn.MaxPool2d(kernel_size=3, stride=2, padding=1),
@@ -86,7 +106,6 @@ class ResNet18(nn.Module):
             resblock(128, 256, downsample=True),
             resblock(256, 256, downsample=False)
         )
-
 
         self.layer4 = nn.Sequential(
             resblock(256, 512, downsample=True),

@@ -1,5 +1,5 @@
 """AlexNetModel
-A class to represent the specific type of CNN model used for predicting  clinical scores.
+A class to represent the specific type of CNN model used for predicting clinical scores.
 
 This requires the following to be installed within the Python environment:
     * torch

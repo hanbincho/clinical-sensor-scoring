@@ -52,12 +52,14 @@ Currently, there are standard clinical practices where trained physicians visual
 </p>
 
 * Upon uploading, the plots for each column of sensor data in the uploaded csv file are generated and displayed on the screen.
-* After all plots have been generated, on the right of the page, click the `Predict Score` button.
+* After all plots have been generated, on the right of the page, select the pretrained model to predict with
+    * If `Custom` is selected, a widget will appear to allow the user to upload the custom trained model
+* Click the `Predict Score` button.
 	* This uses the pretrained ML models to assign scores for each column of sensor data.
 	* The predicted scores are displayed on the screen.
 	* Clicking the `Download Scores` button, downloads a text file containing the predicted scores for each sensor data as displayed on the page. 
 <p align="center" width="100%">	
-	<img src= "doc/images/predictScores.png"></img>
+	<img src= "doc/images/predictScores.PNG"></img>
 </p>
 
 ### Training model using newly acquired sensor data.
@@ -74,7 +76,8 @@ The preinstalled ML model can also be fine-tuned as detailed below.
 	<img src= "doc/images/hyperParameters.jpg"></img>
 </p>
 
-* Scroll down and click on the `Train Model` button.
+* Scroll down and select the type of model to train with
+* Then, click on the `Train Model` button.
 * When the training is competed the plots for training accuracy and training loss are displayed on the page.
 	* Note that these plots will only be generated for `Epochs` > 1. 
 <p align="center" width="100%">	

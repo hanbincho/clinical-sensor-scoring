@@ -98,16 +98,9 @@ with col2:
     predict_pressed = st.button("Predict Scores")
 
     if predict_pressed:
-        # st.write(model_type + ' training model will be used to predict score.')
-
         file_path = os.getcwd() + '/senbace/generated_plots_for_prediction/'
         files = os.listdir(file_path)
         data_loader = make_prediction.load_data(file_path, 1)
-        # if model_type == "AlexNet":
-        #     model_path = os.getcwd() + '/tests/test_model/alexnet_class_50eps.pth'
-        # elif model_type == "ResNet":
-        #     model_path = os.getcwd() + '/tests/test_model/resnet_class_25eps.pth'
-        # elif model_type == "Custom":
         model_path = download_model_path+custom_file.name
         pred_score = make_prediction.score_prediction(data_loader, model_path)
 

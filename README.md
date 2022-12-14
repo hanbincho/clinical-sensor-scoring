@@ -52,14 +52,14 @@ Currently, there are standard clinical practices where trained physicians visual
 </p>
 
 * Upon uploading, the plots for each column of sensor data in the uploaded csv file are generated and displayed on the screen.
-* After all plots have been generated, on the right of the page, select the pretrained model to predict with
-    * If `Custom` is selected, a widget will appear to allow the user to upload the custom trained model
+* After all plots have been generated, upload a pretrained model file to perform predictions with
+    * Pretrained AlexNet and ResNet models can be found and downloaded [here](https://drive.google.com/drive/folders/1FoLb1gWtzfzZhoXGOsv9FYaxvADgOuK8)
 * Click the `Predict Score` button.
 	* This uses the pretrained ML models to assign scores for each column of sensor data.
 	* The predicted scores are displayed on the screen.
 	* Clicking the `Download Scores` button, downloads a text file containing the predicted scores for each sensor data as displayed on the page. 
 <p align="center" width="100%">	
-	<img src= "doc/images/predictScores.PNG"></img>
+	<img src= "doc/images/predictScore.PNG"></img>
 </p>
 
 ### Training model using newly acquired sensor data.

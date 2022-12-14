@@ -57,6 +57,9 @@ if score_file is not None:
     scores_data.to_csv(download_score_path+score_file.name)
     st.write(scores_data)
 
+# Selection of the type of model to train with
+user_model_type = st.radio("Select a model to predict with:", ("AlexNet", "ResNet"))
+
 # Button to start prediction
 train_pressed = st.button("Train Model")
     
@@ -69,7 +72,8 @@ if train_pressed:
     st.write("Data loader was created!")
 
     # Facing some kind of import issue here...
-    train_acc, train_loss = train_model.train_data(int(user_num_epochs), float(user_lr), int(user_batch_size), training_dataloader)
+    train_acc, train_loss = train_model.train_data(int(user_num_epochs), float(user_lr), \
+        int(user_batch_size), training_dataloader, user_model_type)
     st.write("Model was trained!")
 
     st.markdown("# Results of trained model")

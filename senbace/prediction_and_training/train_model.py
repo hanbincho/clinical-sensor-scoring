@@ -13,9 +13,11 @@ import numpy as np
 from torch import nn
 import os
 from .alexnet_model import AlexNet
+from .resnet_model import ResNet18
+from .resnet_model import ResBlock
 os.sys.path.append('../')
 
-def train_data(num_epochs, learning_rate, data_batch_size, user_data_loader):
+def train_data(num_epochs, learning_rate, data_batch_size, user_data_loader, model_type):
     """
     Train the AlexNet model with user specific hyperparameters and datset
 
@@ -31,12 +33,15 @@ def train_data(num_epochs, learning_rate, data_batch_size, user_data_loader):
         A value representing the number of images used for training during an iteration
     user_data_loader : Dataloader
         A dataloader containing the images to be used for model training
+    model_type : str
+        The type of model to be used for training. Either "AlexNet" for AlexNet or 
+        "ResNet" for ResNet
 
     Returns
     -------
     accuracy_list : list
         A list of training accuracies recorded during training of the model
-    loss_list : TYPE
+    loss_list : list
         A list of training lossess recorded during training of the model
 
     """
@@ -63,7 +68,10 @@ def train_data(num_epochs, learning_rate, data_batch_size, user_data_loader):
     torch.manual_seed(seed)
 
     # create model
-    model = AlexNet(num_classes=7) # since score can range from 0-20
+    if model_type == "AlexNet":
+        model = AlexNet(num_classes=7) 
+    elif model_type == "ResNet":
+        model = ResNet18(num_classes=7)
     model.to(curr_device) # move the model to GPU
 
     # Define loss function

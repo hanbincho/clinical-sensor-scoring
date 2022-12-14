@@ -96,7 +96,7 @@ The preinstalled ML model can also be fine-tuned as detailed below.
 │   │   ├── electromyography.png
 │   │   ├── hyperParameters.jpg
 │   │   ├── loadData.png
-│   │   ├── predictScores.PNG
+│   │   ├── predictScore.PNG
 │   │   ├── senbaceLandingPage.png
 │   │   ├── trainedModel.PNG
 │   │   ├── trainingPrediction.jpg

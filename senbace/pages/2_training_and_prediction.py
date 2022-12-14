@@ -1,6 +1,6 @@
 """This python script is the training and prediction page which takes two user inputs
  (image file and model file) for training model and predict score, It also allows
- user to set hyperparameters and export score results as a text file."""
+ user to set hyper-parameters and export score results as a text file."""
 import os
 import streamlit as st
 import pandas as pd

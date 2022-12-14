@@ -18,7 +18,7 @@ Currently, there are standard clinical practices where trained physicians visual
 ## How to use
 **SenBaCE** can be accessed directly on the web or through the command line/local terminal.
 
-* The web platform is hosted on Streamlit's server and can be accessed via this link ===> [SenBaCE](https://hanbincho-clinical-sensor-scoring-senbacemain-enhox7.streamlit.app/).
+* The web platform is hosted on Streamlit's server and can be accessed via this link ===> [SenBaCE](https://hanbincho-clinical-sensor-scoring-senbacemain-vm1ynv.streamlit.app/).
 * To access **SenBaCE** via the command line/local terminal:
 	> * Open a terminal and change your working directory to the desired location for the **SenBaCE** package.
 	> * Clone the repoistory using `git clone https://github.com/hanbincho/clinical-sensor-scoring.git`

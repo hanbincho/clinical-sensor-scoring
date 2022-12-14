@@ -1,15 +1,22 @@
-from streamlit_extras.switch_page_button import switch_page
+"""This script creates the load data page which takes user inputs (patient name
+and input csv file) and generates plots based on the sensor data in the file.
+"""
 
-import streamlit as st
-import pandas as pd
-import numpy as np
+
 import os
 import re
+import streamlit as st
+import pandas as pd
 import matplotlib.pyplot as plt
 from prediction_and_training import make_prediction
+<<<<<<< HEAD
+from prediction_and_training.alexnet_model import AlexNet
+
+=======
 from prediction_and_training.alexnet_model import AlexNet 
 from prediction_and_training.resnet_model import ResNet18
 from prediction_and_training.resnet_model import ResBlock
+>>>>>>> refs/remotes/origin/main
 
 # Import required packages
 def plot(file):
@@ -53,6 +60,7 @@ def plot(file):
         plt.close()
         st.write(fig)
 
+
 st.set_page_config(page_title="Load Data")
 if "visibility" not in st.session_state:
     st.session_state.visibility = "visible"
@@ -75,9 +83,7 @@ with col1:
     if upload_csv:
         plot(upload_csv)
 
-
-
-#================================================================
+# ================================================================
 
 with col2:
     st.markdown("## Predicting with a Pretrained Model")
@@ -112,25 +118,23 @@ with col2:
         pred_score = make_prediction.score_prediction(data_loader, model_path)
 
         score_list = []
-        for ii in range(len(pred_score)):
-            displayed_text = 'Predicted score for {}: {}'.format(files[ii].split('.')[0], pred_score[ii])
-            st.write(displayed_text) 
-            score_list.append(displayed_text)
+        for ii in enumerate(pred_score):
+            DISPLAYED_TEXT = f"Predicted score for {files[ii].split('.')[0]}: { pred_score[ii]}"
+            st.write(DISPLAYED_TEXT)
+            score_list.append(DISPLAYED_TEXT)
 
             if patient_input:
-                with open(patient_input +'_predicted_scores.txt', 'a') as f:
-                    f.write((displayed_text) + '\n')
+                with open(patient_input + '_predicted_scores.txt', 'a', encoding="utf8") as f:
+                    f.write(DISPLAYED_TEXT + '\n')
                 f.close()
 
             else:
-                with open(patient_input + '_patient_predicted_scores.txt', 'a') as f:
-                    f.write((displayed_text) + '\n')
+                with open(patient_input + '_patient_predicted_scores.txt',
+                          'a', encoding="utf8") as f:
+                    f.write(DISPLAYED_TEXT + '\n')
                 f.close()
 
-        st.download_button("Download scores", str(score_list), file_name = patient_input +'_patient_predicted_scores.txt')
+        st.download_button("Download scores", str(score_list),
+                           file_name=patient_input + '_patient_predicted_scores.txt')
 
-text_out = st.text_area("Feedback: " )
- 
-        
-
-
+text_out = st.text_area("Feedback: ")

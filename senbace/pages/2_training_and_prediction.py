@@ -1,7 +1,9 @@
-import streamlit as st 
-import pandas as pd
-import numpy as np
+"""This python script is the training and prediction page which takes two user inputs
+ (image file and model file) for training model and predict score, It also allows
+ user to set hyperparameters and export score results as a text file."""
 import os
+import streamlit as st
+import pandas as pd
 import matplotlib.pyplot as plt
 from prediction_and_training import make_prediction
 from prediction_and_training import train_model
@@ -27,6 +29,7 @@ st.markdown("# Hyperparameters")
 user_batch_size = st.text_input("Batch Size", 1)
 
 # Remaining text boxes for hyperparameters
+# Remaining text boxes for hyperparameters
 user_num_epochs = st.text_input("Epochs", 1)
 user_lr = st.text_input("Learning Rate", 1e-5)
 
@@ -38,7 +41,7 @@ if image_file is not None:
         os.makedirs(download_image_path)
 
     st.write("Loaded: ")
-    for i in range(len(image_file)):
+    for i in enumerate(image_file):
         st.write(image_file[i].name)
         # Then save the image
         img_to_save = Image.open(image_file[i])
@@ -62,20 +65,21 @@ user_model_type = st.radio("Select a model to predict with:", ("AlexNet", "ResNe
 
 # Button to start prediction
 train_pressed = st.button("Train Model")
-    
 # When user presses button, create dataloader and start training
 if train_pressed:
     training_dataloader = make_prediction.load_data(download_image_path, int(user_batch_size), \
         download_score_path+score_file.name)
 
-
     st.write("Data loader was created!")
-
     # Facing some kind of import issue here...
+<<<<<<< HEAD
+    train_acc, train_loss = train_model.train_data(int(user_num_epochs), float(user_lr),
+                                                   int(user_batch_size), training_dataloader)
+=======
     train_acc, train_loss = train_model.train_data(int(user_num_epochs), float(user_lr), \
         int(user_batch_size), training_dataloader, user_model_type)
+>>>>>>> refs/remotes/origin/main
     st.write("Model was trained!")
-
     st.markdown("# Results of trained model")
 
     fig, ax = plt.subplots(2, 1, constrained_layout=True)
@@ -88,14 +92,11 @@ if train_pressed:
     ax[1].set_ylabel('Training Loss')
 
     st.pyplot(fig)
-    
     # Also delete the downloaded files/directory
-    for i in range(len(image_file)):
+    for i in enumerate(image_file):
         # Delete the downloaded image files
         if os.path.exists(download_image_path+image_file[i].name):
             os.remove(download_image_path+image_file[i].name)
     # Also delete the downloaded model file
         if os.path.exists(download_score_path+score_file.name):
             os.remove(download_score_path+score_file.name)
-
-

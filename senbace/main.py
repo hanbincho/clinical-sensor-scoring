@@ -1,6 +1,7 @@
+"""This python script creates the main page of Sensor Based Clinical Evaluation
+It also creates a sidebar and a button for navigation across different pages.
+"""
 import streamlit as st
-import numpy as np
-import pandas as pd
 from streamlit_extras.switch_page_button import switch_page
 
 st.set_page_config(
@@ -17,6 +18,6 @@ st.markdown(""" **Project Goal**: To minimize inconsistensies and bias in clinic
 
 st.sidebar.success("Select a page above.")
 
-next = st.button("Next")
-if next:
+next_page = st.button("Next")
+if next_page:
     switch_page("Load_Data")
